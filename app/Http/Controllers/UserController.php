@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: User
+ * User: Landan
  * Date: 2018/9/27
  * Time: 20:43
  */
@@ -22,11 +22,46 @@ class UserController extends Controller
         //
     }
 
-    public  function get()
+    public  function getOne($uesr_id)
     {
+        $users = User::find($uesr_id);
+        // $customers = Customer::all();
+        $json = [
+            'code' => '',
+            'status' => 1,
+            'data' => $users,
+            'jwt' => config('API.JWT.EXPIRES')
+        ];
+        return response()->json($json);
+    }
+
+    public  function getAll($request)
+    {
+
         $users = User::all();
         // $customers = Customer::all();
-        return response()->json($users);
+        $json = [
+            'code' => '',
+            'status' => 1,
+            'data' => $users,
+            'jwt' => config('API.JWT.EXPIRES')
+        ];
+        return response()->json($json);
+    }
+
+    public  function post($request)
+    {
+        $req = $request->all();
+        var_dump($req);
+        $users = User::all();
+        // $customers = Customer::all();
+        $json = [
+            'code' => '',
+            'status' => 1,
+            'data' => $users,
+            'jwt' => \config('API.JWT.EXPIRES')
+        ];
+        return response()->json($json);
     }
 
     //

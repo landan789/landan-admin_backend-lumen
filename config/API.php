@@ -1,12 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: User
+ * User: Landan
  * Date: 2018/9/28
  * Time: 14:11
+ *
+ * Don't design this structure [OVER 2 NESTED] because it will be very mess and hard to maintain
+ * 请不要设计这个结构 [超过两层]，不移维护
+ *
  */return [
     'JWT' => [
-        'EXPIRES'  => 60 * 60 * 1000,
+        'EXPIRES'  => 60 * 60 * 1000, // 1 hour
         'SUBJECT'  => 'support@jinku.com',
         'ISSUER'   => 'support@jinku.com',
         'AUDIENCE' => 'jinku.com',
