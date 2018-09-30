@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 
+
 use Aplusaccelinc\Helpers\Jwt;
 use Aplusaccelinc\Helpers\Response;
-use Mockery\Exception;
+use Aplusaccelinc\Helpers\Log;
+
 
 class AuthenticationController extends Controller
 {
@@ -22,15 +24,16 @@ class AuthenticationController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        //
     }
 
     public  function postSignin(Request $request)
     {
+        $jwt = '';
         try
         {
+            Log::start($request, $jwt);
 
             if (empty($request->name))
             {
@@ -40,7 +43,6 @@ class AuthenticationController extends Controller
             $userId = '';
             $hashPassword = '';
             $name = strtolower($request->name);
-            $requestPassword = Hash::make($request->password);
 
             $password = $request->password;
             $users = User::where('name', $name)
@@ -61,11 +63,13 @@ class AuthenticationController extends Controller
             if (Hash::check($password, $hashPassword))
             {
                 $jwt = Jwt::encode($userId, null, null);
+                Log::success($request, $jwt);
 
                 return Response::jsonSuccess('USER_SUCCEDS_TO_SIGNIN', $jwt);
             }
 
         } catch (\Exception $e) {
+            Log::fail($request, $jwt);
 
             return Response::jsonFail($e->getMessage());
 

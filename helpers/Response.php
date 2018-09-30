@@ -30,6 +30,7 @@ class Response
             'status' => 0,
             'code' => $message ?  config('MESSAGES.' . $message . '.CODE') : '',
             'message' => $message ? config('MESSAGES.' . $message . '.MESSAGE') : '',
+            'data' => [],
             'jwt' => $jwt ? $jwt : ''
         ];
         return response()->json($json, 500);
