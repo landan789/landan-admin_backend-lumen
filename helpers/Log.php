@@ -20,7 +20,7 @@ class Log
     }
 
     public static function success ($request, $jwt) {
-        _Log::critial(clientIP() . ' ' . $request->method() . ' ' . $request->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
+        _Log::critical(clientIP() . ' ' . $request->method() . ' ' . $request->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
 
     }
 
