@@ -10,7 +10,7 @@ namespace Aplusaccelinc\Helpers;
 
 class Response
 {
-    public static function jsonSuccess($message, $jwt, $data = [])
+    public static function jsonSuccess($message, $jwt, $data = [], $totalCount)
     {
         $message = strtoupper($message);
         $json = [
@@ -18,6 +18,7 @@ class Response
             'code' => $message ?  config('MESSAGES.' . $message . '.CODE') : '',
             'message' => $message ? config('MESSAGES.' . $message . '.MESSAGE') : '',
             'data' => $data ? $data : [],
+            'total_count' => $totalCount,
             'jwt' => $jwt ? $jwt : ''
         ];
         return response()->json($json, 200);
@@ -31,6 +32,7 @@ class Response
             'code' => $message ?  config('MESSAGES.' . $message . '.CODE') : '',
             'message' => $message ? config('MESSAGES.' . $message . '.MESSAGE') : '',
             'data' => [],
+            'total_count' => 0,
             'jwt' => $jwt ? $jwt : ''
         ];
         return response()->json($json, 500);
