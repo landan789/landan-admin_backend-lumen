@@ -47,6 +47,7 @@ class AuthenticationController extends Controller
             $password = $request->password;
             $users = User::where('name', $name)
                          ->get();
+
             foreach ($users as $user)
             {
                 $userId = $user->user_id;
