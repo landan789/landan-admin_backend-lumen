@@ -12,7 +12,7 @@ use \Firebase\JWT\JWT as _JWT;
 
 class Jwt
 {
-    public function encode($userId, $customerId, $expires)
+    public static function encode($userId, $customerId, $expires)
     {
         $payload = [
             'sub' => config('API.JWT.SUBJECT'),
@@ -24,12 +24,12 @@ class Jwt
             'cid' => $customerId ? $customerId : ''
         ];
 
-        $jwt = _JWT::encode($payload);
+        $jwt = _JWT::encode($payload,  config('API.JWT.SECRET'));
 
         return $jwt;
     }
 
-    public function decode()
+    public static function decode()
     {
 
     }

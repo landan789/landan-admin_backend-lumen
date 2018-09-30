@@ -7,10 +7,12 @@
  */
 namespace App\Http\Controllers;
 
-use Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
+
+use Aplusaccelinc\Helpers\Jwt;
+use Aplusaccelinc\Helpers\Response;
 
 class AuthenticationController extends Controller
 {
@@ -26,18 +28,27 @@ class AuthenticationController extends Controller
 
     public  function postSignin(Request $request)
     {
+        $userId = '';
+        $hashPassword = '';
         $name = strtolower($request->name);
-        $password = Hash::make($request->password);
+        $requestPassword = Hash::make($request->password);
+
+        $password = $request->password;
         $users = User::where('name', $name)
-                     ->get()
-                     ->first();
+                     ->get();
         foreach ($users as $user)
         {
-            $name = $user->name;
+            $userId = $user->user_id;
+            $hashPassword = $user->password;
         }
-        if (Hash::check('secret', $password))
+
+        // $password, original password
+        // $hashPassword, encoded original password via hash
+        if (Hash::check($password, $hashPassword))
         {
-            // The passwords match...
+            $jwt = Jwt::encode($userId, null, null);
+
+            return Response::jsonSuccess('USER_SUCCEDS_TO_SIGNIN', $jwt);
         }
 
     }

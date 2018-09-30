@@ -21,6 +21,7 @@ class User extends Model
     protected $fillable = [
         'name',
         'email',
+        'password'
     ];
 
     /**
@@ -28,7 +29,4 @@ class User extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
 }

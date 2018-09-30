@@ -15,9 +15,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->post('authentication/signin', 'AuthenticationController@postSignin');
-$router->post('authentication/signout', 'AuthenticationController@postSignout');
-$router->post('authentication/signup', 'AuthenticationController@postSignup');
+$router->post('-authentication/signin', 'AuthenticationController@postSignin');
+$router->post('-authentication/signout', 'AuthenticationController@postSignout');
+$router->post('-authentication/signup', 'AuthenticationController@postSignup');
 
 $router->get('user/{user_id}/one', 'UserController@getOne');
 $router->get('user/all', 'UserController@getAll');

@@ -30,7 +30,7 @@ class UserController extends Controller
             'code' => '',
             'status' => 1,
             'data' => $users,
-            'jwt' => config('API.JWT.EXPIRES')
+            'jwt' => config('API.JWT.SECRET')
         ];
         return response()->json($json);
     }

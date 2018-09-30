@@ -100,5 +100,6 @@ $app->router->group([
 });
 
 $app->configure('API');
+$app->configure('MESSAGES');
 
 return $app;
