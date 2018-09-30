@@ -52,8 +52,16 @@
     ],
 
 
-    'USERID_IS_EMPTY' => [
-        'CODE' => 1,
-        'MESSAGE' => 'userid is empty'
+    'USER_USERID_IS_EMPTY' => [
+        'CODE' => 1.1,
+        'MESSAGE' => 'user userid is empty'
+    ],
+    'USER_NAME_IS_EMPTY' => [
+        'CODE' => 1.2,
+        'MESSAGE' => 'user name is empty'
+    ],
+    'USER_PASSOWRD_DOESNT_MATCH' => [
+        'CODE' => 1.3,
+        'MESSAGE' => 'user password doesnt match'
     ],
 ];

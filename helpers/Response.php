@@ -32,6 +32,6 @@ class Response
             'message' => $message ? config('MESSAGES.' . $message . '.MESSAGE') : '',
             'jwt' => $jwt ? $jwt : ''
         ];
-        response()->json($json, 500);
+        return response()->json($json, 500);
     }
 }

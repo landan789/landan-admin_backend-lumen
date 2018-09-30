@@ -13,6 +13,7 @@ use App\User;
 
 use Aplusaccelinc\Helpers\Jwt;
 use Aplusaccelinc\Helpers\Response;
+use Mockery\Exception;
 
 class AuthenticationController extends Controller
 {
@@ -28,28 +29,48 @@ class AuthenticationController extends Controller
 
     public  function postSignin(Request $request)
     {
-        $userId = '';
-        $hashPassword = '';
-        $name = strtolower($request->name);
-        $requestPassword = Hash::make($request->password);
-
-        $password = $request->password;
-        $users = User::where('name', $name)
-                     ->get();
-        foreach ($users as $user)
+        try
         {
-            $userId = $user->user_id;
-            $hashPassword = $user->password;
+
+            if (empty($request->name))
+            {
+                throw new \Exception('USER_NAME_IS_EMPTY');
+            }
+
+            $userId = '';
+            $hashPassword = '';
+            $name = strtolower($request->name);
+            $requestPassword = Hash::make($request->password);
+
+            $password = $request->password;
+            $users = User::where('name', $name)
+                         ->get();
+            foreach ($users as $user)
+            {
+                $userId = $user->user_id;
+                $hashPassword = $user->password;
+            }
+
+            if (!Hash::check($password, $hashPassword))
+            {
+                throw new \Exception('USER_PASSOWRD_DOESNT_MATCH');
+            }
+
+            // $password, original password
+            // $hashPassword, encoded original password via hash
+            if (Hash::check($password, $hashPassword))
+            {
+                $jwt = Jwt::encode($userId, null, null);
+
+                return Response::jsonSuccess('USER_SUCCEDS_TO_SIGNIN', $jwt);
+            }
+
+        } catch (\Exception $e) {
+
+            return Response::jsonFail($e->getMessage());
+
         }
 
-        // $password, original password
-        // $hashPassword, encoded original password via hash
-        if (Hash::check($password, $hashPassword))
-        {
-            $jwt = Jwt::encode($userId, null, null);
-
-            return Response::jsonSuccess('USER_SUCCEDS_TO_SIGNIN', $jwt);
-        }
 
     }
 
