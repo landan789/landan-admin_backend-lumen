@@ -21,42 +21,15 @@ class UserController extends Controller {
     }
 
     public  function getOne($uesr_id) {
-        $users = User::find($uesr_id);
-        // $customers = Customer::all();
-        $json = [
-            'code' => '',
-            'status' => 1,
-            'data' => $users,
-            'jwt' => config('API.JWT.SECRET')
-        ];
-        return response()->json($json);
+
     }
 
     public  function getAll($request) {
 
-        $users = User::all();
-        // $customers = Customer::all();
-        $json = [
-            'code' => '',
-            'status' => 1,
-            'data' => $users,
-            'jwt' => config('API.JWT.EXPIRES')
-        ];
-        return response()->json($json);
     }
 
-    public  function post($request) {
-        $req = $request->all();
-        var_dump($req);
-        $users = User::all();
-        // $customers = Customer::all();
-        $json = [
-            'code' => '',
-            'status' => 1,
-            'data' => $users,
-            'jwt' => \config('API.JWT.EXPIRES')
-        ];
-        return response()->json($json);
+    public  function postOne($request) {
+
     }
 
     //
