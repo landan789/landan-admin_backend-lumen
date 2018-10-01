@@ -19,12 +19,18 @@ $router->post('-authentication/signin', 'AuthenticationController@postSignin');
 $router->post('-authentication/signout', 'AuthenticationController@postSignout');
 $router->post('-authentication/signup', 'AuthenticationController@postSignup');
 
-$router->get('user/{user_id}/one', 'UserController@getOne');
-$router->get('user/all', 'UserController@getAll');
+$router->get('-customer/all', 'CustomerController@getAll');
 
-$router->get('customer/all', 'CustomerController@getAll');
-$router->get('customer/{customerid}/one', 'CustomerController@getOne');
-$router->post('customer/one', 'CustomerController@postOne');
-$router->put('customer/{customerid}/one', 'CustomerController@putOne');
-$router->delete('customer/{customerid}/one', 'CustomerController@deleteOne');
 
+$router->group(['middleware' => 'authentication'], function () use ($router) {
+
+    $router->get('user/{user_id}/one', 'UserController@getOne');
+    $router->get('user/all', 'UserController@getAll');
+
+    $router->get('customer/all', 'CustomerController@getAll');
+    $router->get('customer/{customerid}/one', 'CustomerController@getOne');
+    $router->post('customer/one', 'CustomerController@postOne');
+    $router->put('customer/{customerid}/one', 'CustomerController@putOne');
+    $router->delete('customer/{customerid}/one', 'CustomerController@deleteOne');
+
+});

@@ -66,7 +66,7 @@ class AuthenticationController extends Controller
                 $jwt = Jwt::encode($userId, null, null);
                 Log::success($request, $jwt);
 
-                return Response::jsonSuccess('USER_SUCCEDS_TO_SIGNIN', $jwt);
+                return Response::jsonSuccess('USER_SUCCEDS_TO_SIGNIN', $jwt, null, null);
             }
 
         } catch (\Exception $e) {

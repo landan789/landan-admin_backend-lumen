@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 use App\Customer;
 use Aplusaccelinc\Helpers\Response;
-use Mockery\Exception;
+use Aplusaccelinc\Helpers\Log;
 
 class CustomerController extends Controller {
     /**
@@ -53,11 +53,11 @@ class CustomerController extends Controller {
             }
 
             $customers = $customerQuery ->get();
-            Log::success($request);
+            Log::success($request, null);
 
             return Response::jsonSuccess('DATA_SUCCED_TO_FIND', null, $customers, $totalCount);
-        } catch (Exception $e){
-            Log::fail($request);
+        } catch (\Exception $e){
+            Log::fail($request, null);
 
             return Response::jsonFail($e->getMessage());
         }
@@ -65,53 +65,35 @@ class CustomerController extends Controller {
     }
 
     public function getOne(Request $request, $customerId) {
-        $customer = Customer::find($customerId);
-        $customers = [$customer];
 
-        return Response::jsonSuccess('DATA_SUCCED_TO_FIND', null, $customers);
+        try {
+            if (!$customerId) {
+                throw new \Exception('CUSTOMER_CUSTOMERID_IS_EMPTY');
+            }
+
+            $customer = Customer::find($customerId);
+            $customers = [$customer];
+
+            return Response::jsonSuccess('DATA_SUCCED_TO_FIND', null, $customers);
+        } catch (\Exception $e) {
+            Log::fail($request);
+
+            return Response::jsonFail($e->getMessage(), null);
+        }
+
 
     }
 
     public function postOne($request) {
-        $req = $request->all();
-        var_dump($req);
-        $users = User::all();
-        // $customers = Customer::all();
-        $json = [
-            'code' => '',
-            'status' => 1,
-            'data' => $users,
-            'jwt' => \config('API.JWT.EXPIRES')
-        ];
-        return response()->json($json);
+
     }
 
     public function putOne($request) {
-        $req = $request->all();
-        var_dump($req);
-        $users = User::all();
-        // $customers = Customer::all();
-        $json = [
-            'code' => '',
-            'status' => 1,
-            'data' => $users,
-            'jwt' => \config('API.JWT.EXPIRES')
-        ];
-        return response()->json($json);
+
     }
 
     public function deleteOne($request) {
-        $req = $request->all();
-        var_dump($req);
-        $users = User::all();
-        // $customers = Customer::all();
-        $json = [
-            'code' => '',
-            'status' => 1,
-            'data' => $users,
-            'jwt' => \config('API.JWT.EXPIRES')
-        ];
-        return response()->json($json);
+
     }
 
     //

@@ -27,7 +27,9 @@ class Jwt {
         return $jwt;
     }
 
-    public static function decode() {
+    public static function decode($jwt) {
+        $payload = _JWT::decode($jwt, config('API.JWT.SECRET'), array('HS256'));
 
+        return $payload;
     }
 }

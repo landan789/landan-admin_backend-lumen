@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 
 use Aplusaccelinc\Helpers\Jwt;
+use Aplusaccelinc\Helpers\Response;
 
 class Authentication
 {
@@ -31,11 +32,25 @@ class Authentication
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null) {
-        if ($this->auth->guard($guard)->guest()) {
-            return response('Unauthorized.', 401);
+    public function handle($request, Closure $next) {
+        try {
+            $jwt = $request->header('Authorization');
+
+            if (empty($jwt)) {
+                throw new \Exception('JWT_IS_NOT_AUTHORIZED');
+            }
+            $payload = Jwt::decode($jwt);
+            $exp = $payload->exp;
+            if (time() > $exp) {
+                throw new \Exception('JWT_HAS_EXPIRED');
+            }
+            return $next($request);
+
+        } catch (\Exception $e) {
+            $message = $e->getMessage() ? $e->getMessage() : 'JWT_IS_NOT_AUTHORIZED';
+            return Response::jsonFail($message, null, 401);
+
         }
 
-        return $next($request);
     }
 }

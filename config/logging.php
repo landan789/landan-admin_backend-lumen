@@ -8,7 +8,6 @@
 
 return [
     'channels' => [
-
         'API' => [
             'driver' => 'single',
             'level' => 'info',

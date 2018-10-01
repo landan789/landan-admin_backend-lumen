@@ -23,16 +23,16 @@ class Response {
         return response()->json($json, 200);
     }
 
-    public static function jsonFail($message = '', $jwt = '') {
+    public static function jsonFail($message = '', $jwt = '', $status = 500) {
         $message = strtoupper($message);
         $json = [
             'status' => 0,
-            'code' => $message ?  config('MESSAGES.' . $message . '.CODE') : '',
-            'message' => $message ? config('MESSAGES.' . $message . '.MESSAGE') : '',
+            'code' =>  config('MESSAGES.' . $message . '.CODE') ?  config('MESSAGES.' . $message . '.CODE') : 999,
+            'message' => config('MESSAGES.' . $message . '.MESSAGE') ? config('MESSAGES.' . $message . '.MESSAGE') : $message,
             'data' => [],
             'total_count' => 0,
             'jwt' => $jwt ? $jwt : ''
         ];
-        return response()->json($json, 500);
+        return response()->json($json, $status);
     }
 }

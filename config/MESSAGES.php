@@ -64,4 +64,9 @@
         'CODE' => 1.3,
         'MESSAGE' => 'user password doesnt match'
     ],
+
+    'CUSTOMER_CUSTOMERID_IS_EMPTY' => [
+        'CODE' => 2.1,
+        'MESSAGE' => 'customer customerid is empty'
+    ],
 ];
