@@ -64,8 +64,7 @@ class CustomerController extends Controller {
 
     }
 
-    public function getOne(Request $request, $customerId)
-    {
+    public function getOne(Request $request, $customerId) {
         $customer = Customer::find($customerId);
         $customers = [$customer];
 
@@ -73,8 +72,7 @@ class CustomerController extends Controller {
 
     }
 
-    public function postOne($request)
-    {
+    public function postOne($request) {
         $req = $request->all();
         var_dump($req);
         $users = User::all();
@@ -88,8 +86,7 @@ class CustomerController extends Controller {
         return response()->json($json);
     }
 
-    public function putOne($request)
-    {
+    public function putOne($request) {
         $req = $request->all();
         var_dump($req);
         $users = User::all();
@@ -103,8 +100,7 @@ class CustomerController extends Controller {
         return response()->json($json);
     }
 
-    public function deleteOne($request)
-    {
+    public function deleteOne($request) {
         $req = $request->all();
         var_dump($req);
         $users = User::all();

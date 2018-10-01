@@ -8,10 +8,9 @@
 
 namespace Aplusaccelinc\Helpers;
 
-class Response
-{
-    public static function jsonSuccess($message, $jwt, $data = [], $totalCount)
-    {
+class Response {
+
+    public static function jsonSuccess($message, $jwt, $data = [], $totalCount){
         $message = strtoupper($message);
         $json = [
             'status' => 1,
@@ -24,8 +23,7 @@ class Response
         return response()->json($json, 200);
     }
 
-    public static function jsonFail($message = '', $jwt = '')
-    {
+    public static function jsonFail($message = '', $jwt = '') {
         $message = strtoupper($message);
         $json = [
             'status' => 0,

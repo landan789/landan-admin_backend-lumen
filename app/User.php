@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model
-{
+class User extends Model {
     use Authenticatable, Authorizable;
     protected $table = 'user';
     protected $primaryKey = 'user_id';

@@ -10,20 +10,17 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Customer;
 
-class UserController extends Controller
-{
+class UserController extends Controller {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         //
     }
 
-    public  function getOne($uesr_id)
-    {
+    public  function getOne($uesr_id) {
         $users = User::find($uesr_id);
         // $customers = Customer::all();
         $json = [
@@ -35,8 +32,7 @@ class UserController extends Controller
         return response()->json($json);
     }
 
-    public  function getAll($request)
-    {
+    public  function getAll($request) {
 
         $users = User::all();
         // $customers = Customer::all();
@@ -49,8 +45,7 @@ class UserController extends Controller
         return response()->json($json);
     }
 
-    public  function post($request)
-    {
+    public  function post($request) {
         $req = $request->all();
         var_dump($req);
         $users = User::all();

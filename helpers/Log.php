@@ -11,8 +11,7 @@ namespace Aplusaccelinc\Helpers;
 use Log as _Log;
 use function Aplusaccelinc\Functions\clientIP;
 
-class Log
-{
+class Log {
     public static $requstAll = '';
     public static $channel = 'API';
     public static function start ($request, $jwt) {

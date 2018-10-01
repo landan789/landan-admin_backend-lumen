@@ -10,10 +10,8 @@ namespace Aplusaccelinc\Helpers;
 
 use \Firebase\JWT\JWT as _JWT;
 
-class Jwt
-{
-    public static function encode($userId, $customerId, $expires)
-    {
+class Jwt {
+    public static function encode($userId, $customerId, $expires){
         $payload = [
             'sub' => config('API.JWT.SUBJECT'),
             'iss' => config('API.JWT.ISSUER'),
@@ -29,8 +27,7 @@ class Jwt
         return $jwt;
     }
 
-    public static function decode()
-    {
+    public static function decode() {
 
     }
 }

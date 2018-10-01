@@ -19,8 +19,7 @@ class Authentication
      * @param  \Illuminate\Contracts\Auth\Factory  $auth
      * @return void
      */
-    public function __construct( )
-    {
+    public function __construct( ) {
 
     }
 
@@ -32,8 +31,7 @@ class Authentication
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
-    {
+    public function handle($request, Closure $next, $guard = null) {
         if ($this->auth->guard($guard)->guest()) {
             return response('Unauthorized.', 401);
         }
