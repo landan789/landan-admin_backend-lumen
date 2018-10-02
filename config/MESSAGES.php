@@ -39,16 +39,20 @@
 
 
     'JWT_IS_NOT_PERMITTED' => [
-        'CODE' => -3,
+        'CODE' => -4,
         'MESSAGE' => 'jwt is not permitted'
     ],
     'JWT_HAS_EXPIRED' => [
-        'CODE' => -2,
+        'CODE' => -3,
         'MESSAGE' => 'jwt has expired'
     ],
     'JWT_IS_NOT_AUTHORIZED' => [
-        'CODE' => -1,
+        'CODE' => -2,
         'MESSAGE' => 'jwt is not authorized'
+    ],
+    'JWT_IS_EMPTY' => [
+        'CODE' => -1,
+        'MESSAGE' => 'jwt is empty'
     ],
 
 

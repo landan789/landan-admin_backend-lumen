@@ -37,7 +37,7 @@ class Authentication
             $jwt = $request->header('Authorization');
 
             if (empty($jwt)) {
-                throw new \Exception('JWT_IS_NOT_AUTHORIZED');
+                throw new \Exception('JWT_IS_EMPTY');
             }
             $payload = Jwt::decode($jwt);
             $exp = $payload->exp;
