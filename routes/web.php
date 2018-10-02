@@ -19,9 +19,6 @@ $router->post('-authentication/signin', 'AuthenticationController@postSignin');
 $router->post('-authentication/signout', 'AuthenticationController@postSignout');
 $router->post('-authentication/signup', 'AuthenticationController@postSignup');
 
-$router->get('-customer/all', 'CustomerController@getAll');
-
-
 $router->group(['middleware' => 'authentication'], function () use ($router) {
 
     $router->get('user/{user_id}/one', 'UserController@getOne');

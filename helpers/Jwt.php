@@ -12,6 +12,10 @@ use \Firebase\JWT\JWT as FIREBASEJWTJWT;
 
 class Jwt {
     public static function encode($userId, $customerId, $expires){
+
+        // uid is very easy to be intruded, so we do a extra encoding for it.
+        // cid is very easy to be intruded, so we do a extra encoding for it
+
         $payload = [
             'sub' => config('API.JWT.SUBJECT'),
             'iss' => config('API.JWT.ISSUER'),
@@ -21,6 +25,7 @@ class Jwt {
             'uid' => $userId ? $userId : '',
             'cid' => $customerId ? $customerId : ''
         ];
+
 
         $jwt = FIREBASEJWTJWT::encode($payload,  config('API.JWT.SECRET'));
 

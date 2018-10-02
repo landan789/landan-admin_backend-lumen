@@ -14,6 +14,6 @@
         'SUBJECT'  => 'support@jinku.com',
         'ISSUER'   => 'support@jinku.com',
         'AUDIENCE' => 'jinku.com',
-        'SECRET'   => 'ilovejinku'
+        'SECRET'   => 'f0f91cfe0527aca17aa53df53d5d7dba2d92eec6e774c989bceae0f62a15f2b7b5510bc7d9427229a9acd8df27c685750660ecb1b4322b9003f00145b00bfd40a96704bd3fe0e5173f59279f6203c04a'
     ]
 ];
