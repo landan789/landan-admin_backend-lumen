@@ -17,26 +17,21 @@ use Aplusaccelinc\Helpers\Response;
 use Aplusaccelinc\Helpers\Log;
 
 
-class AuthenticationController extends Controller
-{
+class AuthenticationController extends Controller {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(Request $request)
-    {
+    public function __construct(Request $request) {
     }
 
-    public  function postSignin(Request $request)
-    {
+    public  function postSignin(Request $request) {
         $jwt = '';
-        try
-        {
+        try {
             Log::start($request, $jwt);
 
-            if (empty($request->name))
-            {
+            if (empty($request->name)) {
                 throw new \Exception('USER_NAME_IS_EMPTY');
             }
 
@@ -48,21 +43,18 @@ class AuthenticationController extends Controller
             $users = User::where('name', $name)
                          ->get();
 
-            foreach ($users as $user)
-            {
+            foreach ($users as $user) {
                 $userId = $user->user_id;
                 $hashPassword = $user->password;
             }
 
-            if (!Hash::check($password, $hashPassword))
-            {
+            if (!Hash::check($password, $hashPassword)) {
                 throw new \Exception('USER_PASSOWRD_DOESNT_MATCH');
             }
 
             // $password, original password
             // $hashPassword, encoded original password via hash
-            if (Hash::check($password, $hashPassword))
-            {
+            if (Hash::check($password, $hashPassword)) {
                 $jwt = Jwt::encode($userId, null, null);
                 Log::success($request, $jwt);
 
@@ -79,24 +71,20 @@ class AuthenticationController extends Controller
 
     }
 
-    public  function postSignout()
-    {
+    public  function postSignout() {
 
     }
 
-    public  function postSignup()
-    {
+    public  function postSignup() {
 
     }
 
-    public  function postRefresh()
-    {
+    public  function postRefresh() {
 
     }
 
 
-    public  function getState()
-    {
+    public  function getState() {
 
     }
 
