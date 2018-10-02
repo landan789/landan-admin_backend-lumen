@@ -8,7 +8,7 @@
 
 namespace Aplusaccelinc\Helpers;
 
-use \Firebase\JWT\JWT as _JWT;
+use \Firebase\JWT\JWT as FIREBASEJWTJWT;
 
 class Jwt {
     public static function encode($userId, $customerId, $expires){
@@ -22,13 +22,13 @@ class Jwt {
             'cid' => $customerId ? $customerId : ''
         ];
 
-        $jwt = _JWT::encode($payload,  config('API.JWT.SECRET'));
+        $jwt = FIREBASEJWTJWT::encode($payload,  config('API.JWT.SECRET'));
 
         return $jwt;
     }
 
     public static function decode($jwt) {
-        $payload = _JWT::decode($jwt, config('API.JWT.SECRET'), array('HS256'));
+        $payload = FIREBASEJWTJWT::decode($jwt, config('API.JWT.SECRET'), array('HS256'));
 
         return $payload;
     }
