@@ -34,16 +34,19 @@ class Authentication
      */
     public function handle($request, Closure $next) {
         try {
+
             $jwt = $request->header('Authorization');
 
             if (empty($jwt)) {
                 throw new \Exception('JWT_IS_EMPTY');
             }
+
             $payload = Jwt::decode($jwt);
             $exp = $payload->exp;
             if (time() > $exp) {
                 throw new \Exception('JWT_HAS_EXPIRED');
             }
+
             return $next($request);
 
         } catch (\Exception $e) {
