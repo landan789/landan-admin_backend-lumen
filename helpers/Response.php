@@ -10,6 +10,16 @@ namespace Aplusaccelinc\Helpers;
 
 class Response {
 
+    public $successStatus = 200;
+    public $failStatus = 500;
+    public $json = [
+        'status' => 0,
+        'code' => NULL,
+        'data' => [],
+        'total_count' => 0,
+        'jwt' => ''
+    ];
+
     public static function jsonSuccess($message, $jwt, $data = [], $totalCount){
         $message = strtoupper($message);
         $json = [
@@ -27,7 +37,7 @@ class Response {
         $message = strtoupper($message);
         $json = [
             'status' => 0,
-            'code' =>  config('MESSAGES.' . $message . '.CODE') ?  config('MESSAGES.' . $message . '.CODE') : 999,
+            'code' =>  config('MESSAGES.' . $message . '.CODE') ?  config('MESSAGES.' . $message . '.CODE') : 9999,
             'message' => config('MESSAGES.' . $message . '.MESSAGE') ? config('MESSAGES.' . $message . '.MESSAGE') : $message,
             'data' => [],
             'total_count' => 0,

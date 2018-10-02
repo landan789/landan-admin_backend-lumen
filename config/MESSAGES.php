@@ -10,30 +10,30 @@
  *
  */return [
      'DATA_SUCCED_TO_FIND' => [
-         'CODE' => 0,
+         'CODE' => NULL,
          'MESSAGE' => 'data succed to find'
      ],
      'DATA_SUCCED_TO_INSERT' => [
-        'CODE' => 0,
+        'CODE' => NULL,
         'MESSAGE' => 'data succed to insert'
      ],
      'DATA_SUCCED_TO_UPDATE' => [
-        'CODE' => 0,
+        'CODE' => NULL,
         'MESSAGE' => 'data succed to update'
      ],
      'DATA_SUCCED_TO_REMOVE' => [
-        'CODE' => 0,
+        'CODE' => NULL,
         'MESSAGE' => 'data succed to remove'
      ],
 
     'USER_SUCCEDS_TO_SIGNIN' => [
-        'CODE' => 0,
+        'CODE' => NULL,
         'MESSAGE' => 'user succeds to signin'
     ],
 
 
      'UNKNOWN_ERROR' => [
-         'CODE' => -999,
+         'CODE' => 0,
          'MESSAGE' => 'unknown error'
      ],
 
