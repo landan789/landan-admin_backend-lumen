@@ -12,6 +12,6 @@
 8.  activity_categories, 活动类型
 9.  activities, 活动
 10. activity_rewards, 活动奖励
-11. activity_awarders, 获奖人记录
+11. activity_awarders, 获奖人记录 # 活动授奖部分可以 做成 事件方式，耦合性低
 
 12. banners, BANNER
