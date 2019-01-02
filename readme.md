@@ -8,11 +8,13 @@
     - 超级部
     - 人事部
     - 总理部
+2.  employee_categories, 员工分类
+    - 总监 GET, POST, PUT, DELETE
+    - 经理 GET, POST, PUT
+    - 组长 GET, POST
+    - 职员 GET
 2.  employees, 员工
-    - 总监
-    - 经理
-    - 组长
-    - 职员
+
     
 3.  users, 后台用户
 4.  user_logins, 后台用户登入记录
