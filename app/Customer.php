@@ -17,7 +17,7 @@ class Customer extends Model {
     protected $table = 'customer';
     protected $primaryKey = 'customer_id';
     const CREATED_AT = 'created_time';
-    const UPDATED_AT = 'update_time';
+    const UPDATED_AT = 'updated_time';
     /**
      * The attributes that are mass assignable.
      *
