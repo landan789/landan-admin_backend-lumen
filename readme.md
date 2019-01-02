@@ -9,11 +9,15 @@
     - 人事部
     - 总理部
 2.  employees, 员工
+    - 经理
+    - 组长
+    - 职员
+    
 3.  users, 后台用户
 4.  user_logins, 后台用户登入记录
 
 4.  members, 前台用户
-4.  member_logins, 前台用户登入记录
+4.  member_signins, 前台用户登入记录
 5.  member_transactions, 用户账变
     - 支付宝
     - 微信
