@@ -12,3 +12,4 @@
 8.  activity_categories, 活动类型
 9.  activities, 活动
 10. activity_rewards, 活动奖励
+11. activity_awarders, 获奖人记录
