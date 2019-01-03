@@ -44,12 +44,15 @@
     - ip
     - 分表
 5.  member_transactions, 用户账变
-    - type (支付宝,微信,银行卡,活动)
+    - type (支付宝,微信,银行卡,活动, 客服充值, 系统回馈)
 
 5.  payment_categories, 支付类型
     - 支付宝
     - 微信
     - 银行卡
+6. payment_category_types,
+    - name
+    - description
     
 6.  payment_ways, 支付实际渠道
     - name
