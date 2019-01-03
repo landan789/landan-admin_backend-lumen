@@ -1,11 +1,13 @@
 # Database Schema
-.  organizations, 组织 
-.  departments, 部门
+1.  organizations, 组织 
+    - name
+    - domain
+1.  departments, 部门
     - department_id
     - organization_id
     - name
     - 技术部,产品部,市场部,运营部,财务部,超级部,人事部,总理部
-2.  department_roles, 员工分类
+1.  department_roles, 员工分类
     - department_id
     - department_role_id
     - name
@@ -13,7 +15,7 @@
     - 经理 GET, POST, PUT
     - 组长 GET, POST
     - 职员 GET
-2.  employees, 员工
+1.  employees, 员工
 
     
 3.  users, 后台用户
