@@ -67,7 +67,16 @@
     - 注册
     - 首充
 9.  activities, 活动
+    - name
+    - type (签到, 首储，注册，邀请，盈亏)
 10. activity_rewards, 活动奖励
+    - activity_id
+    - from
+    - to
+    - rate
+    - amount
+    - max
+    # bounus = (money * rate + amout >= max ? max : a * rate + amout)
 11. activity_awarders, 获奖人记录 # 活动授奖部分可以 做成 事件方式，耦合性低
 
 12. banners, 广告
