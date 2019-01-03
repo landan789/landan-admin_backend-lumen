@@ -6,12 +6,12 @@
     - department_id
     - organization_id
     - name
+    - roles ( 可考虑 BSON)
     - 技术部,产品部,市场部,运营部,财务部,超级部,人事部,总理部
 1.  department_roles, 员工分类
     - department_id
     - department_role_id
     - name
-    - roles (BSON)
     - 总监 GET, POST, PUT, DELETE
     - 经理 GET, POST, PUT
     - 组长 GET, POST
