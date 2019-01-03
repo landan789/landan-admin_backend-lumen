@@ -62,3 +62,8 @@
 11. activity_awarders, 获奖人记录 # 活动授奖部分可以 做成 事件方式，耦合性低
 
 12. banners, 广告
+13. verifications, 验证
+    - code
+    - phone
+    - ip
+    - user_id
