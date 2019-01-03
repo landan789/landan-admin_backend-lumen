@@ -37,7 +37,7 @@
     - 微信
     - 银行卡
     
-6.  payment_methods, 支付实际渠道
+6.  payment_ways, 支付实际渠道
     - name
     - path (32 hash)
     - method (GET, POST, PUT, DELETE)
