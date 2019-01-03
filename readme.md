@@ -24,7 +24,7 @@
    - department_ids
    - department_role_id
    
- 1. organization_employee
+1. organization_employee
    - organzation_id
    - employee_id
     
