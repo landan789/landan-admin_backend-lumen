@@ -1,14 +1,9 @@
 # Database Schema
 1.  departments, 部门
-    - 技术部
-    - 产品部
-    - 市场部
-    - 运营部
-    - 财务部
-    - 超级部
-    - 人事部
-    - 总理部
+    - name
+    - 技术部,产品部,市场部,运营部,财务部,超级部,人事部,总理部
 2.  employee_categories, 员工分类
+    - name
     - 总监 GET, POST, PUT, DELETE
     - 经理 GET, POST, PUT
     - 组长 GET, POST
@@ -17,10 +12,20 @@
 
     
 3.  users, 后台用户
+    - name
+    - email
 4.  user_logins, 后台用户登入记录
+    - user_login_id
+    - user_id
+    - ip
+    - 分表
 
 4.  members, 前台用户
 4.  member_signins, 前台用户登入记录
+    - member_sigin_id
+    - member_id
+    - ip
+    - 分表
 5.  member_transactions, 用户账变
     - 支付宝
     - 微信
