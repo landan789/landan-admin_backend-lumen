@@ -11,6 +11,7 @@
     - department_id
     - department_role_id
     - name
+    - roles (BSON)
     - 总监 GET, POST, PUT, DELETE
     - 经理 GET, POST, PUT
     - 组长 GET, POST
