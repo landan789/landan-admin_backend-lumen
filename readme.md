@@ -17,12 +17,12 @@
     - 组长 GET, POST
     - 职员 GET
 1.  employees, 员工
-   - employee_id
-   - user_id
-   - name
-   - organization_ids
-   - department_ids
-   - department_role_id
+    - employee_id
+    - user_id
+    - name
+    - organization_ids
+    - department_ids
+    - department_role_id
    
 1. organization_employee
    - organzation_id
