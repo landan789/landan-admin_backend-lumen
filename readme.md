@@ -1,8 +1,13 @@
 # Database Schema
-1.  departments, 部门
+.  organizations, 组织 
+.  departments, 部门
+    - department_id
+    - organization_id
     - name
     - 技术部,产品部,市场部,运营部,财务部,超级部,人事部,总理部
-2.  employee_categories, 员工分类
+2.  department_roles, 员工分类
+    - department_id
+    - department_role_id
     - name
     - 总监 GET, POST, PUT, DELETE
     - 经理 GET, POST, PUT
