@@ -69,6 +69,9 @@
     - type (签到, 首储，注册，邀请，盈亏)
 10. activity_rewards, 活动奖励
     - activity_id
+    - activity_reward_id
+    - activity_reward_condition_id
+11. activity_reward_conditions, 奖励条件
     - from
     - to
     - rate
