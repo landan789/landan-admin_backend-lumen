@@ -74,6 +74,26 @@
 9.  activities, 活动
     - name
     - type (签到, 首储，注册，邀请，盈亏)
+    - conditions (用 BSON)
+     [
+  { "from": -2147483647,
+    "to": -5000,
+    "rate": 0.05,
+    "max": "1888"
+  },
+  {
+    "from": -5000，
+    "to": -3000,
+    "rate": 0.03,
+    "max": ""
+  },
+  {
+    "from": -3000,
+    "to": -2000,
+    "rate": 0.02,
+    "max": ""
+  }
+]
 10. activity_rewards, 活动奖励
     - activity_id
     - activity_reward_id
