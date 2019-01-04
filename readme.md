@@ -55,11 +55,9 @@
     - description
     
 6.  payment_ways, 支付实际渠道
-    - name
+    - name （八戒, 闪云）
     - path (32 hash)
     - method (GET, POST, PUT, DELETE)
-    - 八戒
-    - 闪云
     
 7.  payment_accounts, 支付账号
 
