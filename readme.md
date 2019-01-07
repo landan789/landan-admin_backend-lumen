@@ -75,29 +75,13 @@
     - name
     - type (签到, 首储，注册，邀请，盈亏)
     - conditions (用 BSON)
-     [
-  { "from": -2147483647,
-    "to": -5000,
-    "rate": 0.05,
-    "max": "1888"
-  },
-  {
-    "from": -5000，
-    "to": -3000,
-    "rate": 0.03,
-    "max": ""
-  },
-  {
-    "from": -3000,
-    "to": -2000,
-    "rate": 0.02,
-    "max": ""
-  }
-]
+[{ "from": 180, "to": 280, "max": "108", "rate": 0, "bonus": 18}, {  "from": 280, "to": 580, "max": "108", "rate": 0, "bonus": 28}, {"from": 580, "to": 880, "max": "108", "rate": 0, "bonus": 68}, {"from": 880, "to": 1080, "max": "108", "rate": 0, "bonus": 88}, {"from": 1080, "to": 2147483647, "max": "108", "rate": 0, "bonus": 108}]
 10. activity_rewards, 活动奖励
     - activity_id
     - activity_reward_id
     - activity_reward_condition_id
+    - related_id
+    - related_table (member_transactions, member_cards, member_transaction_daily)
 11. activity_reward_conditions, 奖励条件
     - from
     - to
