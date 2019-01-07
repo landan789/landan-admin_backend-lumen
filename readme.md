@@ -81,7 +81,7 @@
     - activity_reward_id
     - activity_reward_condition_id
     - related_id
-    - related_table (member_transactions, member_cards, member_transaction_daily)
+    - related_table (member_transaction_times, member_cards, member_transaction_days, member_transaction_months, member_transaction_years)
 11. activity_reward_conditions, 奖励条件
     - from
     - to
