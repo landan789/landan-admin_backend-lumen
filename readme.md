@@ -68,7 +68,10 @@
     
 7.  payment_accounts, 支付账号
 
-8.  activity_categories, 活动类型
+8.  events, 事件
+    - event_id
+    - activity_type_id
+8.  activity_types, 活动类型
     - 注册
     - 首充
 9.  activities, 活动
