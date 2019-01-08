@@ -103,3 +103,8 @@
     - phone
     - ip
     - user_id
+    
+14. platforms
+
+15. platform_types
+   - name (AG, BBIN, NOUYA_1, NOUYA_2)
