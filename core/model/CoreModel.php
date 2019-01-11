@@ -1,5 +1,8 @@
 <?php
+namespace core;
 
-class CoreModel extends Model {
+use Illuminate\Database\Eloquent\Model as _Model;
 
-}；
+class Model extends _Model {
+
+}
