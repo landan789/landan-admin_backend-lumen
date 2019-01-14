@@ -1,5 +1,6 @@
 <?php
 /**
+ * model 必须要考虑 Redis 锁 或 MySQL 锁的自动化机制
  * Created by PhpStorm.
  * User: User
  * Date: 2018/9/28
