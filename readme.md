@@ -35,22 +35,22 @@
    - organzation_id
    - employee_id
     
-3.  users, 后台用户
+3.  administrators, 后台用户
     - name
     - email
-4.  user_logins, 后台用户登入记录
+4.  administrator_logins, 后台用户登入记录
     - user_login_id
     - user_id
     - ip
     - 分表
 
-4.  members, 前台用户
-4.  member_signins, 前台用户登入记录
+4.  users, 前台用户
+4.  user_signins, 前台用户登入记录
     - member_sigin_id
     - member_id
     - ip
     - 分表
-5.  member_transactions, 用户账变
+5.  user_transactions, 用户账变
     - type (支付宝,微信,银行卡,活动, 客服充值, 系统回馈, 现金领取，系统理赔，客服扣款)
 
 5.  payment_categories, 支付类型
@@ -83,8 +83,8 @@
     - activity_id
     - activity_reward_id
     - activity_reward_condition_id
-    - join_id
-    - join_table (member_transaction_times, member_cards, member_transaction_days, member_transaction_months, member_transaction_years)
+    - relative_id
+    - relative_table (user_transaction_times, user_cards, user_transaction_days, user_transaction_months, member_transaction_years)
 11. activity_reward_conditions, 奖励条件
     - from
     - to
@@ -111,4 +111,4 @@
 16. tables
    - id
    - name
-   - type (SYSTEM, USER, OPERATOR)
+   - type (SYSTEM 系统变异资料, CONFIG 程序设定表,USER 变异资料, ADMINISTRATOR 后台管理者变异表)
