@@ -108,3 +108,7 @@
 
 15. platform_types
    - name (AG, BBIN, NOUYA_1, NOUYA_2)
+16. tables
+   - id
+   - name
+   - type (SYSTEM, USER, OPERATOR)
