@@ -108,6 +108,15 @@
 
 15. platform_types
    - name (AG, BBIN, NOUYA_1, NOUYA_2)
+   
+15. transactions
+   - transaction_id
+   - created_time
+16. transaction_details 考虑交易可能会有 先买 但是 过几天后才开奖的情形
+   - transaction_detail_id
+   - transaction_detail_type_id
+   - created_time
+17. transaction_detail_types
 16. tables
    - id
    - name
