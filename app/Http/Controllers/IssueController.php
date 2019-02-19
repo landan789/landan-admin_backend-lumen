@@ -25,7 +25,8 @@ class IssueController extends Controller {
     }
 
     public function getAll(Request $request) {
-
+        echo "issue";
+        exit;
         return Response::jsonSuccess('SUCCEED_TO_SHOW_ISSUE', null, [], 1);
 
 
