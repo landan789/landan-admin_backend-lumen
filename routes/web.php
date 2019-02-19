@@ -25,7 +25,7 @@ $router->get('/lottery/all', 'LotteryController@getAll');
 
 $router->group(['middleware' => 'authentication'], function () use ($router) {
 
-    $router->get(config('PATHS.USER') . '/{user_id}/one', 'UserController@getOne');
-    $router->get(config('PATHS.USER') .'/all', 'UserController@getAll');
+    $router->get('user/{user_id}/one', 'UserController@getOne');
+    $router->get('user/all', 'UserController@getAll');
 
 });
