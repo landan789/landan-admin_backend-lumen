@@ -42,6 +42,13 @@ php artisan swoole:http stop -vvv
 ```
 ---------------------------------------
 
+[*]. 若更改了 composer.json 的 autoload 设定，需要执行 composer install
+
+```shell
+composer install
+```
+---------------------------------------
+
 # Database Schema
 1.  menus
     - name

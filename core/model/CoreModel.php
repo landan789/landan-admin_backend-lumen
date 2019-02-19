@@ -3,6 +3,6 @@ namespace core\model;
 
 use Illuminate\Database\Eloquent\Model as _Model;
 
-class Model extends _Model {
+class CoreModel extends _Model {
 
 }

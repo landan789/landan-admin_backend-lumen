@@ -24,7 +24,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Aplusaccelinc\\Helpers\\": "helpers/"
+            "Aplusaccelinc\\Helpers\\": "helpers/",
+            "core\\model\\": "core/model/"
         },
         "files" : ["functions/clientIP.php"]
     },

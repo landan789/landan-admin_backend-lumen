@@ -8,9 +8,7 @@
 
 namespace App\Models;
 
-use Laravel\Lumen\Auth\Authorizable;
-
-use core\model;
+use core\model\CoreModel;
 
 class LotteryModel extends CoreModel {
     protected $table = 'lotteries';
@@ -23,8 +21,10 @@ class LotteryModel extends CoreModel {
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'id',
+        'game_type',
+        'series_id',
+        'name'
     ];
 
     /**
@@ -32,7 +32,30 @@ class LotteryModel extends CoreModel {
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
+
+    public static function show () {
+
+        $query = self::whereNull('created_at');
+
+//        if (!empty($name)) {
+//            $query = $query->where('name', 'LIKE', '%' . $name. '%');
+//        }
+//
+//        if (!empty($email)) {
+//            $query = $query->where('email', 'LIKE', '%' . $email. '%');
+//        }
+
+//        if (0 < $offset) {
+//            $query = $query->offset($offset);
+//        }
+//
+//        if (0 < $limit) {
+//            $query = $query->limit($limit);
+//        }
+
+        $aLotteries = $query ->get();
+
+        return $aLotteries;
+
+    }
 }
