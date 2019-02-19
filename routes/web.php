@@ -12,6 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
+    return 'FFCC';
     return $router->app->version();
 });
 
