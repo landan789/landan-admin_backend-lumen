@@ -102,7 +102,6 @@ $app->router->group([
 $app->configure('API');
 $app->configure('MESSAGES');
 $app->configure('swoole_http');
-$app->configure('PATHS');
 
 $app->register(SwooleTW\Http\LumenServiceProvider::class);
 
