@@ -10,11 +10,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Issue;
+use App\Models\Issue;
 use Aplusaccelinc\Helpers\Response;
 use Aplusaccelinc\Helpers\Log;
 
-class CustomerController extends Controller {
+class IssueController extends Controller {
     /**
      * Create a new controller instance.
      *
@@ -26,6 +26,9 @@ class CustomerController extends Controller {
 
     public function getAll(Request $request) {
 
+        return Response::jsonSuccess('SUCCEED_TO_SHOW_ISSUE', null, [], 1);
+
+
         try {
             $offset = 0 < $request->query('offset') ? $request->query('offset') : $this->offset;
             $limit = 0 < $request->query('limit') ? $request->query('offset') : $this->limit;
@@ -33,7 +36,7 @@ class CustomerController extends Controller {
             $name = $request->query('name');
             $email = $request->query('email');
 
-            $totalCount = Issue::where('is_deleted', 0)->count();
+            $totalCount = IssueModel::where('is_deleted', 0)->count();
             $customerQuery = Issue::where('is_deleted', 0);
 
             if (!empty($name)) {

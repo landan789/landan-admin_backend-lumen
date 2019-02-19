@@ -10,11 +10,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Issue;
+use App\Models\Lottery;
 use Aplusaccelinc\Helpers\Response;
 use Aplusaccelinc\Helpers\Log;
 
-class CustomerController extends Controller {
+class LotteryController extends Controller {
     /**
      * Create a new controller instance.
      *
@@ -25,6 +25,11 @@ class CustomerController extends Controller {
     }
 
     public function getAll(Request $request) {
+        echo "lottery";
+        exit;
+
+        return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, [], 1);
+
 
         try {
             $offset = 0 < $request->query('offset') ? $request->query('offset') : $this->offset;
@@ -33,7 +38,7 @@ class CustomerController extends Controller {
             $name = $request->query('name');
             $email = $request->query('email');
 
-            $totalCount = Issue::where('is_deleted', 0)->count();
+            $totalCount = IssueModel::where('is_deleted', 0)->count();
             $customerQuery = Issue::where('is_deleted', 0);
 
             if (!empty($name)) {

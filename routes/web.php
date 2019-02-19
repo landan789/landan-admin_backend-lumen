@@ -12,13 +12,16 @@
 */
 
 $router->get('/', function () use ($router) {
-    return 'FFCC';
     return $router->app->version();
 });
 
 $router->post('-authentication/signin', 'AuthenticationController@postSignin');
 $router->post('-authentication/signout', 'AuthenticationController@postSignout');
 $router->post('-authentication/signup', 'AuthenticationController@postSignup');
+
+$router->get('issue/all', 'IssueController@getAll');
+$router->get('lottery/all', 'LotteryController@getAll');
+
 
 $router->group(['middleware' => 'authentication'], function () use ($router) {
 

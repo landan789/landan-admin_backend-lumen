@@ -8,7 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Customer;
+use App\Issue;
 
 class UserController extends Controller {
     /**
@@ -26,6 +26,9 @@ class UserController extends Controller {
 
     public  function getAll($request) {
 
+        $a = 1;
+        echo $a;
+        exit;
     }
 
     public  function postOne($request) {

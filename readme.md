@@ -34,6 +34,14 @@ php -dxdebug.remote_autostart=1 -dxdebug.remote_host=127.0.0.1 -dxdebug.remote_p
 ```
 ---------------------------------------
 
+
+[*]. 以 php, swoole, xdebug 关闭 php lumen 服务
+
+```shell
+php artisan swoole:http stop -vvv
+```
+---------------------------------------
+
 # Database Schema
 1.  menus
     - name

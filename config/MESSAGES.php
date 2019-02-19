@@ -5,29 +5,33 @@
  * Date: 2018/9/28
  * Time: 14:11
  *
- * Don't design this structure [OVER 2 NESTED] because it will be very mess and hard to maintain
- * 请不要设计这个结构 [超过两层]，不移维护
- *
  */return [
      'DATA_SUCCED_TO_FIND' => [
-         'CODE' => NULL,
+         'CODE' => 0,
          'MESSAGE' => 'data succed to find'
      ],
      'DATA_SUCCED_TO_INSERT' => [
-        'CODE' => NULL,
+        'CODE' => 0,
         'MESSAGE' => 'data succed to insert'
      ],
      'DATA_SUCCED_TO_UPDATE' => [
-        'CODE' => NULL,
+        'CODE' => 0,
         'MESSAGE' => 'data succed to update'
      ],
      'DATA_SUCCED_TO_REMOVE' => [
-        'CODE' => NULL,
+        'CODE' => 0,
         'MESSAGE' => 'data succed to remove'
      ],
-
+    'SUCCEED_TO_SHOW_LOTTERY' => [
+        'CODE' => 0,
+        'MESSAGE' => 'succeed to show lottery'
+    ],
+    'SUCCEED_TO_SHOW_ISSUE' => [
+        'CODE' => 0,
+        'MESSAGE' => 'succeed to show issue'
+    ],
     'USER_SUCCEDS_TO_SIGNIN' => [
-        'CODE' => NULL,
+        'CODE' => 0,
         'MESSAGE' => 'user succeds to signin'
     ],
 
