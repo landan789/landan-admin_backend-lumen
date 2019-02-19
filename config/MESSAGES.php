@@ -30,16 +30,19 @@
         'CODE' => 0,
         'MESSAGE' => 'succeed to show issue'
     ],
+
+    'UNKNOWN_ERROR' => [
+        'CODE' => -1,
+        'MESSAGE' => 'unknown error'
+    ],
+
+
     'USER_SUCCEDS_TO_SIGNIN' => [
         'CODE' => 0,
         'MESSAGE' => 'user succeds to signin'
     ],
 
 
-     'UNKNOWN_ERROR' => [
-         'CODE' => 0,
-         'MESSAGE' => 'unknown error'
-     ],
 
 
     'JWT_IS_NOT_PERMITTED' => [
