@@ -38,7 +38,7 @@ class Response {
         $json = [
             'status' => 0,
             'code' =>  config('RESPONSES.' . $message . '.CODE') ?  config('RESPONSES.' . $message . '.CODE') : -0.00,
-            'message' => config('RESPONSES.' . $message . '.MESSAGE') ? config('RESPONSES.' . $message . '.MESSAGE') : "the message of " . $message . " is undefined",
+            'message' => config('RESPONSES.' . $message . '.MESSAGE') ? config('RESPONSES.' . $message . '.MESSAGE') : "not define the message of " . $message . " in RESPONSES.php",
             'data' => [],
             'total_count' => 0,
             'jwt' => $jwt ? $jwt : ''
