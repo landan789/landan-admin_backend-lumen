@@ -28,14 +28,11 @@ class LotteryController extends Controller {
 
         try {
 
-            $a = 9;
             $aLotteries = LotteryModel::show();
-
-            exit;
 
             Log::success($request, null);
 
-            return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, [], 11);
+            return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, $aLotteries, 11);
         } catch (\Exception $e){
             Log::fail($request, null);
 

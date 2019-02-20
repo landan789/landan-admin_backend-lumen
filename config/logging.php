@@ -11,7 +11,7 @@ return [
         'API' => [
             'driver' => 'single',
             'level' => 'info',
-            'path' => storage_path('logs/api.log'),
+            'path' => storage_path('logs/backend.log'),
         ]
     ]
 ];

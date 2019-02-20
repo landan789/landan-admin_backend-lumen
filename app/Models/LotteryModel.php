@@ -24,7 +24,14 @@ class LotteryModel extends CoreModel {
         'id',
         'game_type',
         'series_id',
-        'name'
+        'name',
+        'type',
+        'lotto_type',
+        'is_self',
+        'is_instant',
+        'high_frequency',
+        'sort_winning_number',
+
     ];
 
     /**
@@ -33,9 +40,9 @@ class LotteryModel extends CoreModel {
      * @var array
      */
 
-    public static function show () {
+    public static function show ($id) {
 
-        $query = self::whereNull('created_at');
+        $query = self::where('id', 1);
 
 //        if (!empty($name)) {
 //            $query = $query->where('name', 'LIKE', '%' . $name. '%');
@@ -53,7 +60,7 @@ class LotteryModel extends CoreModel {
 //            $query = $query->limit($limit);
 //        }
 
-        $aLotteries = $query ->get();
+        $aLotteries = $query->get()->toArray();
 
         return $aLotteries;
 
