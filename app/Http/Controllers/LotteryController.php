@@ -28,7 +28,9 @@ class LotteryController extends Controller {
 
         try {
 
-            $aLotteries = LotteryModel::show();
+            $lotteryModel = new LotteryModel();
+
+            $aLotteries = $lotteryModel->show();
 
             Log::success($request, null);
 

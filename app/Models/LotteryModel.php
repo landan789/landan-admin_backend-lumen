@@ -12,7 +12,7 @@ use core\model\CoreModel;
 
 class LotteryModel extends CoreModel {
     protected $table = 'lotteries';
-    // protected $primaryKey = 'issue_id';
+    protected $primaryKey = 'id';
     // const CREATED_AT = 'created_time';
     // const UPDATED_AT = 'updated_time';
     /**
@@ -31,7 +31,27 @@ class LotteryModel extends CoreModel {
         'is_instant',
         'high_frequency',
         'sort_winning_number',
-
+        'valid_nums',
+        'buy_length',
+        'wn_length',
+        'identifier',
+        'days',
+        'issue_over_midnight',
+        'issue_format',
+        'bet_template',
+        'begin_time',
+        'end_time',
+        'sequence',
+        'status',
+        'need_draw',
+        'daily_issue_count',
+        'trace_issue_count',
+        'max_bet_group',
+        'serious_ways',
+        'created_at',
+        'updated_at',
+        'plat_id',
+        'plat_name'
     ];
 
     /**
@@ -40,27 +60,14 @@ class LotteryModel extends CoreModel {
      * @var array
      */
 
-    public static function show ($id) {
+    public function show ($id = null) {
 
-        $query = self::where('id', 1);
+        if (is_integer($id)) {
+            $this->where('id', $id);
+        }
 
-//        if (!empty($name)) {
-//            $query = $query->where('name', 'LIKE', '%' . $name. '%');
-//        }
-//
-//        if (!empty($email)) {
-//            $query = $query->where('email', 'LIKE', '%' . $email. '%');
-//        }
 
-//        if (0 < $offset) {
-//            $query = $query->offset($offset);
-//        }
-//
-//        if (0 < $limit) {
-//            $query = $query->limit($limit);
-//        }
-
-        $aLotteries = $query->get()->toArray();
+        $aLotteries = $this->get()->toArray();
 
         return $aLotteries;
 
