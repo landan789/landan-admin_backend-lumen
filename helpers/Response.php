@@ -37,7 +37,7 @@ class Response {
         $message = strtoupper($message);
         $json = [
             'status' => 0,
-            'code' =>  config('RESPONSES.' . $message . '.CODE') ?  config('RESPONSES.' . $message . '.CODE') : 0.00,
+            'code' =>  config('RESPONSES.' . $message . '.CODE') ?  config('RESPONSES.' . $message . '.CODE') : -0.00,
             'message' => config('RESPONSES.' . $message . '.MESSAGE') ? config('RESPONSES.' . $message . '.MESSAGE') : "the message of " . $message . " is undefined",
             'data' => [],
             'total_count' => 0,
