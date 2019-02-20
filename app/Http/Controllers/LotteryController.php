@@ -12,10 +12,10 @@ use Illuminate\Http\Request;
 
 use Aplusaccelinc\Helpers\Response;
 use Aplusaccelinc\Helpers\Log;
-use core\controller\CoreController;
+use core\controller\Controller;
 use App\Models\LotteryModel;
 
-class LotteryController extends CoreController {
+class LotteryController extends Controller {
     /**
      * Create a new controller instance.
      *
