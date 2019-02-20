@@ -29,6 +29,13 @@
         'MESSAGE' => 'request undefined path'
     ],
 
+    'FAIL_TO_SHOW_LOTTERY' => [
+        'STATUS' => -1,
+        'CODE' => -1.01,
+        'MESSAGE' => 'fail to show lottery'
+    ],
+
+
     'JWT_IS_NOT_PERMITTED' => [
         'CODE' => -4,
         'MESSAGE' => 'jwt is not permitted'

@@ -24,7 +24,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Aplusaccelinc\\Helpers\\": "helpers/",
+            "helpers\\": "helpers/",
             "core\\model\\": "core/model/",
             "core\\controller\\": "core/controller/"
         },

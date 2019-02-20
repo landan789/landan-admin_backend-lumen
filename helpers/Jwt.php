@@ -6,7 +6,7 @@
  * Time: 23:42
  */
 
-namespace Aplusaccelinc\Helpers;
+namespace helpers;
 
 use \Firebase\JWT\JWT as FIREBASE_JWT_JWT;
 

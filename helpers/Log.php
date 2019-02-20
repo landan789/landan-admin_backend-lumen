@@ -6,7 +6,7 @@
  * Time: 12:08
  */
 
-namespace Aplusaccelinc\Helpers;
+namespace helpers;
 
 use Log as _Log;
 use function Aplusaccelinc\Functions\clientIP;

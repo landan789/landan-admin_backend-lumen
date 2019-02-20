@@ -10,8 +10,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Aplusaccelinc\Helpers\Response;
-use Aplusaccelinc\Helpers\Log;
+use helpers\Response;
+use helpers\Log;
 use core\controller\CoreController;
 use App\Models\LotteryModel;
 
@@ -34,7 +34,7 @@ class LotteryController extends CoreController {
 
             $aLotteries = $lotteryModel->show();
 
-            if (null === $aLotteries || 1) {
+            if (null === $aLotteries) {
                 throw new \Exception('FAIL_TO_SHOW_LOTTERY');
             };
 
