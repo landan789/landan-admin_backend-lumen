@@ -8,9 +8,9 @@
 
 namespace App\Models;
 
-use core\model\Model;
+use core\model\CoreModel;
 
-class LotteryModel extends Model {
+class LotteryModel extends CoreModel {
     protected $table = 'lotteries';
     protected $primaryKey = 'id';
     // const CREATED_AT = 'created_time';
