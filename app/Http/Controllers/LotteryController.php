@@ -31,11 +31,20 @@ class LotteryController extends CoreController {
 
             $lotteryModel = new LotteryModel();
 
+
             $aLotteries = $lotteryModel->show();
 
-            Log::success($request, null);
+            if (null === $aLotteries) {
+                throw new \Exception('FAIL_TO_SHOW_LOTTERY');
+            };
 
-            return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, $aLotteries, 11);
+            Log::success($request, null);
+            
+            $aData = [
+                'lotteries' => $aLotteries
+            ];
+
+            return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, $aData, count($aLotteries));
         } catch (\Exception $e){
             Log::fail($request, null);
 
