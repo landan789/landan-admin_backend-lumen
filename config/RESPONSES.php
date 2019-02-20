@@ -7,20 +7,24 @@
  *
  */return [
     'SUCCEED_TO_SHOW_LOTTERY' => [
+        'STATUS' => 1,
         'CODE' => 0,
         'MESSAGE' => 'succeed to show lottery'
     ],
     'SUCCEED_TO_SHOW_ISSUE' => [
+        'STATUS' => 1,
         'CODE' => 0,
         'MESSAGE' => 'succeed to show issue'
     ],
 
     'IS_UNKNOWN_ERROR' => [
+        'STATUS' => -1,
         'CODE' => -0.01,
         'MESSAGE' => 'is unknown error'
     ],
 
     'REQUEST_UNDEFINED_PATH' => [
+        'STAUS' => -1,
         'CODE' => -0.02,
         'MESSAGE' => 'request undefined path'
     ],

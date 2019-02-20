@@ -23,7 +23,7 @@ class Response {
     public static function jsonSuccess($message, $jwt, $data = [], $totalCount){
         $message = strtoupper($message);
         $json = [
-            'status' => 1,
+            'status' => config('RESPONSES.' . $message . '.STATUS') ?  config('RESPONSES.' . $message . '.STATUS') : 1,
             'code' => $message ?  config('RESPONSES.' . $message . '.CODE') : '',
             'message' => $message ? config('RESPONSES.' . $message . '.MESSAGE') : '',
             'data' => $data ? $data : [],
@@ -36,7 +36,7 @@ class Response {
     public static function jsonFail($message = '', $jwt = '', $status = 500) {
         $message = strtoupper($message);
         $json = [
-            'status' => 0,
+            'status' => config('RESPONSES.' . $message . '.STATUS') ?  config('RESPONSES.' . $message . '.STATUS') : -1,
             'code' =>  config('RESPONSES.' . $message . '.CODE') ?  config('RESPONSES.' . $message . '.CODE') : -0.00,
             'message' => config('RESPONSES.' . $message . '.MESSAGE') ? config('RESPONSES.' . $message . '.MESSAGE') : "not define the message of " . $message . " in RESPONSES.php",
             'data' => [],
