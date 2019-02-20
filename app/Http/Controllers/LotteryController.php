@@ -34,12 +34,12 @@ class LotteryController extends CoreController {
 
             $aLotteries = $lotteryModel->show();
 
-            if (null === $aLotteries) {
+            if (null === $aLotteries || 1) {
                 throw new \Exception('FAIL_TO_SHOW_LOTTERY');
             };
 
             Log::success($request, null);
-            
+
             $aData = [
                 'lotteries' => $aLotteries
             ];

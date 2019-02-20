@@ -100,7 +100,7 @@ $app->router->group([
 });
 
 $app->configure('API');
-$app->configure('MESSAGES');
+$app->configure('RESPONSES');
 $app->configure('swoole_http');
 
 $app->register(SwooleTW\Http\LumenServiceProvider::class);

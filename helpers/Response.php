@@ -24,8 +24,8 @@ class Response {
         $message = strtoupper($message);
         $json = [
             'status' => 1,
-            'code' => $message ?  config('MESSAGES.' . $message . '.CODE') : '',
-            'message' => $message ? config('MESSAGES.' . $message . '.MESSAGE') : '',
+            'code' => $message ?  config('RESPONSES.' . $message . '.CODE') : '',
+            'message' => $message ? config('RESPONSES.' . $message . '.MESSAGE') : '',
             'data' => $data ? $data : [],
             'total_count' => $totalCount,
             'jwt' => $jwt ? $jwt : ''
@@ -37,8 +37,8 @@ class Response {
         $message = strtoupper($message);
         $json = [
             'status' => 0,
-            'code' =>  config('MESSAGES.' . $message . '.CODE') ?  config('MESSAGES.' . $message . '.CODE') : 9999,
-            'message' => config('MESSAGES.' . $message . '.MESSAGE') ? config('MESSAGES.' . $message . '.MESSAGE') : $message,
+            'code' =>  config('RESPONSES.' . $message . '.CODE') ?  config('RESPONSES.' . $message . '.CODE') : 9999,
+            'message' => config('RESPONSES.' . $message . '.MESSAGE') ? config('RESPONSES.' . $message . '.MESSAGE') : $message,
             'data' => [],
             'total_count' => 0,
             'jwt' => $jwt ? $jwt : ''
