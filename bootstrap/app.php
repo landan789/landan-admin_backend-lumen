@@ -64,8 +64,9 @@ $app->singleton(
 // ]);
 
  $app->routeMiddleware([
+     'corsMiddleware' => App\Http\Middleware\CorsMiddleware::class,
      'authentication' => App\Http\Middleware\Authentication::class,
-     'undefinedPath' => App\Http\Middleware\UndefinedPath::class
+     'undefinedPathMiddleware' => App\Http\Middleware\UndefinedPathMiddleware::class
  ]);
 
 /*
