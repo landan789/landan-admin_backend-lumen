@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 use App\User;
 
 
-use Aplusaccelinc\Helpers\Jwt;
-use Aplusaccelinc\Helpers\Response;
-use Aplusaccelinc\Helpers\Log;
+use helpers\Jwt;
+use helpers\Response;
+use helpers\Log;
 
 
 class AuthenticationController extends Controller {

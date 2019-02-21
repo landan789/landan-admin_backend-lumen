@@ -31,7 +31,6 @@ class LotteryController extends CoreController {
 
             $lotteryModel = new LotteryModel();
 
-
             $aLotteries = $lotteryModel->show();
 
             if (null === $aLotteries) {

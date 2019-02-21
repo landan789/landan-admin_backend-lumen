@@ -25,41 +25,24 @@ class IssueController extends Controller {
     }
 
     public function getAll(Request $request) {
-        echo "issue";
-        exit;
-        return Response::jsonSuccess('SUCCEED_TO_SHOW_ISSUE', null, [], 1);
-
 
         try {
-            $offset = 0 < $request->query('offset') ? $request->query('offset') : $this->offset;
-            $limit = 0 < $request->query('limit') ? $request->query('offset') : $this->limit;
 
-            $name = $request->query('name');
-            $email = $request->query('email');
+            $issueModel = new IssueModel();
 
-            $totalCount = IssueModel::where('is_deleted', 0)->count();
-            $customerQuery = Issue::where('is_deleted', 0);
+            $aIssues = $issueModel->show();
 
-            if (!empty($name)) {
-                $customerQuery = $customerQuery->where('name', 'LIKE', '%' . $name. '%');
-            }
+            if (null === $aIssues) {
+                throw new \Exception('FAIL_TO_SHOW_ISSUE');
+            };
 
-            if (!empty($email)) {
-                $customerQuery = $customerQuery->where('email', 'LIKE', '%' . $email. '%');
-            }
-
-            if (0 < $offset) {
-                $customerQuery = $customerQuery->offset($offset);
-            }
-
-            if (0 < $limit) {
-                $customerQuery = $customerQuery->limit($limit);
-            }
-
-            $customers = $customerQuery ->get();
             Log::success($request, null);
 
-            return Response::jsonSuccess('DATA_SUCCED_TO_FIND', null, $customers, $totalCount);
+            $aData = [
+                'issues' => $aIssues
+            ];
+
+            return Response::jsonSuccess('SUCCEED_TO_SHOW_ISSUE', null, $aData, count($aIssues));
         } catch (\Exception $e){
             Log::fail($request, null);
 

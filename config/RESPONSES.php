@@ -24,7 +24,7 @@
     ],
 
     'REQUEST_UNDEFINED_PATH' => [
-        'STAUS' => -1,
+        'STATUS' => -1,
         'CODE' => -0.02,
         'MESSAGE' => 'request undefined path'
     ],

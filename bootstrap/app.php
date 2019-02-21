@@ -65,6 +65,7 @@ $app->singleton(
 
  $app->routeMiddleware([
      'authentication' => App\Http\Middleware\Authentication::class,
+     'undefinedPath' => App\Http\Middleware\UndefinedPath::class
  ]);
 
 /*
