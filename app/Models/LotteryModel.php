@@ -60,7 +60,7 @@ class LotteryModel extends CoreModel {
      * @var array
      */
 
-    public function show ($id = null) {
+    public function show (mixed $id = null):array {
 
         if (is_integer($id)) {
             $this->where('id', $id);

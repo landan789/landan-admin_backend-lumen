@@ -23,11 +23,13 @@ $router->post('-authentication/signup', 'AuthenticationController@postSignup');
 
 $router->group(['middleware' => 'corsMiddleware'], function () use ($router) {
 
-    $router->get('/lottery/all', 'LotteryController@getAll');
-    $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
-    $router->get('/issue/all', 'IssueController@getAll');
+
 });
 
+
+$router->get('/lottery/all', 'LotteryController@getAll');
+$router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
+$router->get('/issue/all', 'IssueController@getAll');
 
 $router->group(['middleware' => 'authenticationMiddleware'], function () use ($router) {
 
@@ -35,3 +37,6 @@ $router->group(['middleware' => 'authenticationMiddleware'], function () use ($r
     $router->get('user/all', 'UserController@getAll');
 
 });
+
+// TODO 想用 middleware
+// TODO 请求 不存在的 path , 回传 request undefined path
