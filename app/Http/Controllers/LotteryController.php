@@ -37,8 +37,8 @@ class LotteryController extends CoreController {
             ];
 
             $aOptions = [
-              'offset' => $oRequest->input('offset') ?? null,
-              'limit' => $oRequest->input('limit') ?? null
+              'offset' => $oRequest->input('offset') ?? $this->offset ?? null,
+              'limit' => $oRequest->input('limit') ?? $this->limit ?? null
             ];
 
             $oLotteryModel = new LotteryModel();
