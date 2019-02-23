@@ -32,26 +32,26 @@ class AuthenticationMiddleware
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next) {
+    public function handle($oRequest, Closure $cNext) {
         try {
 
-            $jwt = $request->header('Authorization');
+            $sJwt = $oRequest->header('Authorization');
 
-            if (empty($jwt)) {
+            if (empty($sJwt)) {
                 throw new \Exception('JWT_IS_EMPTY');
             }
 
-            $payload = Jwt::decode($jwt);
-            $exp = $payload->exp;
-            if (time() > $exp) {
+            $oPayload = Jwt::decode($sJwt);
+            $tExp = $oPayload->exp;
+            if (time() > $tExp) {
                 throw new \Exception('JWT_HAS_EXPIRED');
             }
 
-            return $next($request);
+            return $cNext($oRequest);
 
-        } catch (\Exception $e) {
-            $message = $e->getMessage() ? $e->getMessage() : 'JWT_IS_NOT_AUTHORIZED';
-            return Response::jsonFail($message, null, 401);
+        } catch (\Exception $oError) {
+            $sMessage = $oError->getMessage() ? $oError->getMessage() : 'JWT_IS_NOT_AUTHORIZED';
+            return Response::jsonFail($sMessage, null, 401);
 
         }
 

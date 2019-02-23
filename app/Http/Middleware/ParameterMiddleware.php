@@ -35,7 +35,7 @@ class ParameterMiddleware
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next) {
+    public function handle($oRequest, Closure $cNext) {
         $aParses = parse_url($_SERVER['REQUEST_URI']);
         $sQuery = $aParses['query'];
 
@@ -45,5 +45,6 @@ class ParameterMiddleware
         foreach ($aGets as $sKey => $mValue) {
             $_GET[$sKey] = $mValue;
         }
+        return $cNext($oRequest);
     }
 }
