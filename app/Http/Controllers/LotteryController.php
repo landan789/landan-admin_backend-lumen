@@ -10,7 +10,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use helpers\Log;
 use core\controller\CoreController;
 use App\Models\LotteryModel;
 
@@ -56,15 +55,12 @@ class LotteryController extends CoreController {
                 'lotteries' => $aLotteries
             ];
 
-            Log::succeed($oRequest, null);
-
             $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_LOTTERY']);
             $oRequest->request->add(['data' => $aData]);
             $oRequest->request->add(['total_count' => count($aData)]);
             $oRequest->request->add(['jwt' => '']);
 
         } catch (\Exception $oError){
-            Log::fail($oRequest, null);
             $sMessage = $oError->getMessage();
             $oRequest->request->add(['message' => $sMessage]);
 

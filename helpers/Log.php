@@ -18,8 +18,8 @@ class Log {
     public static $channel = 'BACKEND';
     public static function start ($oRequest, $sJwt) {
 
-        self::$oRequstAll = $oRequest->all();
-        self::$oRequstServer = $oRequest->server();
+        self::$oRequestAll = $oRequest->all();
+        self::$oRequestServer = $oRequest->server();
         _Log::channel(self::$channel)
              ->info(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequestServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
     }
@@ -30,7 +30,7 @@ class Log {
 
     }
 
-    public static function  fail ($oRequest, $sJwt) {
+    public static function fail ($oRequest, $sJwt) {
          _Log::channel(self::$channel)
              ->error(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequestServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
     }

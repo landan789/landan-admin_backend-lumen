@@ -11,7 +11,12 @@
 |
 */
 
-$router->group(['middleware' => ['parameterMiddleware', 'responseMiddleware', 'undefinedPathMiddleware']], function () use ($router) {
+$router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'responseMiddleware']], function () use ($router) {
     $router->get('/lottery/all', 'LotteryController@getAll');
     $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
 });
+
+//$router->group(['middleware' => 'undefinedPathMiddleware'], function () use ($router) {
+//    $router->get('/lottery{any}', 'LotteryController@getAll');
+//    $router->options('/lottery{any}', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
+//});

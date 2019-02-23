@@ -45,7 +45,7 @@ class ResponseMiddleware
     public function handle($oRequest, Closure $cNext){
 
         $cNext($oRequest);
-        $sMessage = $oRequest->input('message') ? strtoupper($oRequest->input('message')) : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.MESSAGE');
+        $sMessage = $oRequest->input('message') ? strtoupper($oRequest->input('message')) : 'IT_IS_UNKNOWN_ERROR';
         $aData = $oRequest->input('data') ?? [];
         $iTotalCount = $oRequest->input('total_count') ?? 0;
         $sJwt = $oRequest->input('jwt') ?? '';

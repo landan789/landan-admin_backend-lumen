@@ -11,7 +11,7 @@
 |
 */
 
-$router->group(['middleware' => ['parameterMiddleware', 'responseMiddleware', 'undefinedPathMiddleware']], function () use ($router) {
+$router->group(['middleware' => ['parameterMiddleware', 'responseMiddleware', 'logMiddleware', 'undefinedPathMiddleware']], function () use ($router) {
     $router->options('/issue/all', 'IssueController@getAll'); // Axios 会隐含 打 METHOD 为 options
     $router->get('/issue/all', 'IssueController@getAll');
 });

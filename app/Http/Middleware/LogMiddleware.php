@@ -4,8 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use helpers\Jwt;
-use helpers\Response;
+use helpers\Log;
 
 class LogMiddleware
 {
@@ -33,14 +32,19 @@ class LogMiddleware
      * @return mixed
      */
     public function handle($oRequest, Closure $cNext) {
+        Log::start($oRequest, null);
 
-        // 「前置中间件（BeforeMiddleware）」运行于请求处理之前：
         return $cNext($oRequest);
     }
 
     // HTTP 响应被发送到浏览器之后才运行
-    public function terminate($request, $response)
+    public function terminate($oRequest, $oResponse)
     {
-        // 保存 session 数据...
+        $sMessage = $oRequest->input('message');
+        if (1 === config('RESPONSES.' . $sMessage . '.RESULT')) {
+            Log::succeed($oRequest, null);
+            return;
+        }
+        Log::fail($oRequest, null);
     }
 }
