@@ -33,11 +33,11 @@
         'MESSAGE' => 'it requests undefined path'
     ],
 
-    'FAIL_TO_SHOW_LOTTERY' => [
+    'IT_FAILS_TO_SHOW_LOTTERY' => [
         'STATUS' => 500,
         'RESULT' => -1,
         'CODE' => -1.01,
-        'MESSAGE' => 'fail to show lottery'
+        'MESSAGE' => 'it fails to show lottery'
     ],
 
 

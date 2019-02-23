@@ -46,7 +46,7 @@ class LotteryController extends CoreController {
             $aLotteries = $oLotteryModel->show($iId, $aQueries, $aOptions);
 
             if (null === $aLotteries) {
-                throw new \Exception('FAIL_TO_SHOW_LOTTERY');
+                throw new \Exception('IT_FAILS_TO_SHOW_LOTTERY');
             };
 
             Log::success($oRequest, null);
