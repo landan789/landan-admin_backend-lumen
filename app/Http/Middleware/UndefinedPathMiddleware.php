@@ -41,6 +41,17 @@ class UndefinedPathMiddleware
     public function handle($oRequest, Closure $cNext) {
 
         $cNext($oRequest);
-        return Response::jsonFail('IT_REQUESTS_UNDEFINED_PATH', null, 404);
+
+        $iStatus = config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.STATUS');
+        $json = [
+            'result' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.RESULT'),
+            'code' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.CODE'),
+            'message' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.MESSAGE'),
+            'data' => [],
+            'total_count' => [],
+            'jwt' => ''
+        ];
+
+        return response()->json($json, $iStatus);
     }
 }
