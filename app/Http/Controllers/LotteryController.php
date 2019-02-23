@@ -54,7 +54,7 @@ class LotteryController extends CoreController {
                 'lotteries' => $aLotteries
             ];
 
-            Log::success($oRequest, null);
+            Log::succeed($oRequest, null);
 
             $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_LOTTERY']);
             $oRequest->request->add(['data' => $aData]);

@@ -21,7 +21,7 @@ class Log {
              ->info(clientIP() . ' ' . $request->method() . ' ' . $request->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
     }
 
-    public static function success ($request, $jwt) {
+    public static function succeed ($request, $jwt) {
         _Log::channel(self::$channel)
             ->critical(clientIP() . ' ' . $request->method() . ' ' . $request->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
 
