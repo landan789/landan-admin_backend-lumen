@@ -26,11 +26,11 @@
         'MESSAGE' => 'is unknown error'
     ],
 
-    'REQUEST_UNDEFINED_PATH' => [
+    'IT_REQUESTS_UNDEFINED_PATH' => [
         'STATUS' => 501,
         'RESULT' => -1,
         'CODE' => -0.02,
-        'MESSAGE' => 'request undefined path'
+        'MESSAGE' => 'it requests undefined path'
     ],
 
     'FAIL_TO_SHOW_LOTTERY' => [

@@ -34,7 +34,7 @@ class UndefinedPathMiddleware
      */
     public function handle($oRequest, Closure $cNext) {
 
-        return Response::jsonFail('REQUEST_UNDEFINED_PATH', null, 404);
+        return Response::jsonFail('IT_REQUESTS_UNDEFINED_PATH', null, 404);
 
     }
 }
