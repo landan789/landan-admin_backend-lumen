@@ -14,21 +14,21 @@ use function Aplusaccelinc\Functions\clientIP;
 class Log {
     public static $requstAll = '';
     public static $channel = 'API';
-    public static function start ($oRequest, $jwt) {
+    public static function start ($oRequest, $sJwt) {
 
         self::$requstAll = $oRequest->all();
          _Log::channel(self::$channel)
-             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
+             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$requstAll));
     }
 
-    public static function succeed ($oRequest, $jwt) {
+    public static function succeed ($oRequest, $sJwt) {
         _Log::channel(self::$channel)
-            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
+            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$requstAll));
 
     }
 
-    public static function  fail ($oRequest, $jwt) {
+    public static function  fail ($oRequest, $sJwt) {
          _Log::channel(self::$channel)
-             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $jwt .' ' . json_encode(self::$requstAll));
+             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$requstAll));
     }
 }
