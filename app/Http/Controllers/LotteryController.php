@@ -55,7 +55,7 @@ class LotteryController extends CoreController {
                 'lotteries' => $aLotteries
             ];
 
-            return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, $aData, count($aLotteries));
+            return Response::jsonSuccess('IT_SUCCEEDS_TO_SHOW_LOTTERY', null, $aData, count($aLotteries));
         } catch (\Exception $oError){
             Log::fail($oRequest, null);
 

@@ -6,11 +6,11 @@
  * Time: 14:11
  *
  */return [
-    'SUCCEED_TO_SHOW_LOTTERY' => [
+    'IT_SUCCEEDS_TO_SHOW_LOTTERY' => [
         'STATUS' => 200,
         'RESULT' => 1,
         'CODE' => 0,
-        'MESSAGE' => 'succeed to show lottery'
+        'MESSAGE' => 'it succeeds to show lottery'
     ],
     'IT_SUCCEEDS_TO_SHOW_ISSUE' => [
         'STATUS' => 200,
