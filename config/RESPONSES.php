@@ -45,13 +45,13 @@
         'STATUS' => 403,
         'RESULT' => -1,
         'CODE' => -0.01,
-        'MESSAGE' => 'is forbidden'
+        'MESSAGE' => 'jwt is forbidden'
     ],
     'JWT_IS_EXPIRED' => [
         'STATUS' => 403,
         'RESULT' => -1,
         'CODE' => -3,
-        'MESSAGE' => 'is expired'
+        'MESSAGE' => 'jwt is expired'
     ],
 
     'JWT_IS_UNAUTHORIZED' => [
