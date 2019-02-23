@@ -77,21 +77,6 @@ class LotteryController extends CoreController {
 
     public function getOne(Request $request, $customerId) {
 
-        try {
-            if (!$customerId) {
-                throw new \Exception('CUSTOMER_CUSTOMERID_IS_EMPTY');
-            }
-
-            $customer = Issue::find($customerId);
-            $customers = [$customer];
-
-            return Response::jsonSuccess('DATA_SUCCED_TO_FIND', null, $customers);
-        } catch (\Exception $e) {
-            Log::fail($request);
-
-            return Response::jsonFail($e->getMessage(), null);
-        }
-
 
     }
 
@@ -106,6 +91,4 @@ class LotteryController extends CoreController {
     public function deleteOne($request) {
 
     }
-
-    //
 }
