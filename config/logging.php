@@ -8,10 +8,20 @@
 
 return [
     'channels' => [
-        'API' => [
+        'lottery' => [
             'driver' => 'single',
             'level' => 'info',
-            'path' => storage_path('logs/backend.log'),
-        ]
+            'path' => storage_path('logs/lottery.log'),
+        ],
+        'issue' => [
+            'driver' => 'single',
+            'level' => 'info',
+            'path' => storage_path('logs/issue.log'),
+        ],
+        'any' => [
+            'driver' => 'single',
+            'level' => 'info',
+            'path' => storage_path('logs/any.log'),
+        ],
     ]
 ];

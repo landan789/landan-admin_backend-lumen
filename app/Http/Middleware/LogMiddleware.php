@@ -32,7 +32,7 @@ class LogMiddleware
      * @return mixed
      */
     public function handle($oRequest, Closure $cNext) {
-        Log::start($oRequest, null);
+        Log::start($oRequest, '');
 
         return $cNext($oRequest);
     }
@@ -42,9 +42,9 @@ class LogMiddleware
     {
         $sMessage = $oRequest->input('message');
         if (1 === config('RESPONSES.' . $sMessage . '.RESULT')) {
-            Log::succeed($oRequest, null);
+            Log::succeed($oRequest, '');
             return;
         }
-        Log::fail($oRequest, null);
+        Log::fail($oRequest, '');
     }
 }

@@ -12,26 +12,81 @@ use Log as _Log;
 use function Aplusaccelinc\Functions\clientIP;
 
 class Log {
-    public static $oRequestAll = null;
-    public static $oRequestServer = null;
+    public static $requestAll = '';
+    public static $requestQuery = '';
+    public static $requestCookie = '';
+    public static $requestHeader = '';
+    public static $requestServer = '';
 
-    public static $channel = 'BACKEND';
-    public static function start ($oRequest, $sJwt) {
+    public static $ip = '';
+    public static $method = '';
+    public static $jwt = '';
+    public static $url = '';
 
-        self::$oRequestAll = $oRequest->all();
-        self::$oRequestServer = $oRequest->server();
+    public static $channel = 'any';
+
+    public static function start ($oRequest) {
+        $sRequestUri = $oRequest->server()['REQUEST_URI'];
+        $sServerName = $oRequest->server()['SERVER_NAME'];
+        $sRequestScheme = $oRequest->server()['REQUEST_SCHEME'];
+
+        $aSegments = explode('/', $sRequestUri);
+        $sChannel = $aSegments['1'] ?? self::$channel;
+
+        self::$channel = $sChannel;
+        self::$url = $sRequestScheme . '://' . $sServerName . $sRequestUri;
+        self::$ip = clientIP();
+        self::$method = $oRequest->method();
+        self::$jwt = $oRequest->Header('Authorization') ?? $oRequest->Header('authorization') ?? $oRequest->Header('AUTHORIZATION') ?? '';
+
+        self::$requestAll = json_encode($oRequest->all());
+        self::$requestQuery = json_encode($oRequest->query());
+        self::$requestCookie = json_encode($oRequest->cookie());
+        self::$requestHeader = json_encode($oRequest->Header());
+        self::$requestServer = json_encode($oRequest->server());
+
+        $sLog = self::$ip . ' ' .
+                self::$method . ' ' .
+                self::$url . ' ' .
+                self::$jwt . ' ' .
+                self::$requestAll . ' ' .
+                self::$requestQuery . ' ' .
+                self::$requestCookie . ' ' .
+                self::$requestHeader . ' ' .
+                self::$requestServer;
+
         _Log::channel(self::$channel)
-             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequestServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
+            ->info($sLog);
     }
 
-    public static function succeed ($oRequest, $sJwt) {
+    public static function succeed ($oRequest) {
+        $sLog = self::$ip . ' ' .
+            self::$method . ' ' .
+            self::$url . ' ' .
+            self::$jwt . ' ' .
+            self::$requestAll . ' ' .
+            self::$requestQuery . ' ' .
+            self::$requestCookie . ' ' .
+            self::$requestHeader . ' ' .
+            self::$requestServer;
+
         _Log::channel(self::$channel)
-            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequestServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
+            ->critical($sLog);
 
     }
 
-    public static function fail ($oRequest, $sJwt) {
+    public static function fail ($oRequest) {
+        $sLog = self::$ip . ' ' .
+            self::$method . ' ' .
+            self::$url . ' ' .
+            self::$jwt . ' ' .
+            self::$requestAll . ' ' .
+            self::$requestQuery . ' ' .
+            self::$requestCookie . ' ' .
+            self::$requestHeader . ' ' .
+            self::$requestServer;
+
          _Log::channel(self::$channel)
-             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequestServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
+             ->error($sLog);
     }
 }
