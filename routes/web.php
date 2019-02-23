@@ -25,8 +25,14 @@ $router->group(['middleware' => 'parameterMiddleware'], function () use ($router
     $router->get('/lottery/all', 'LotteryController@getAll');
     $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
     $router->get('/issue/all', 'IssueController@getAll');
-    $router->get('/{any}', ['middleware' => 'undefinedPathMiddleware']);
-}, ['middleware' => 'undefinedPathMiddleware']);
+
+    $router->get('/lottery/all{any}', ['middleware' => 'undefinedPathMiddleware']);
+    $router->post('/lottery/all{any}', ['middleware' => 'undefinedPathMiddleware']);
+    $router->put('/lottery/all{any}', ['middleware' => 'undefinedPathMiddleware']);
+    $router->patch('/lottery/all{any}', ['middleware' => 'undefinedPathMiddleware']);
+    $router->options('/lottery/all{any}', ['middleware' => 'undefinedPathMiddleware']);
+
+});
 
 
 
@@ -38,3 +44,8 @@ $router->group(['middleware' => 'parameterMiddleware'], function () use ($router
 //});
 
 $router->get('/{any}', ['middleware' => 'undefinedPathMiddleware']);
+$router->post('/{any}', ['middleware' => 'undefinedPathMiddleware']);
+$router->put('/{any}', ['middleware' => 'undefinedPathMiddleware']);
+$router->delete('/{any}', ['middleware' => 'undefinedPathMiddleware']);
+$router->patch('/{any}', ['middleware' => 'undefinedPathMiddleware']);
+$router->options('/{any}', ['middleware' => 'undefinedPathMiddleware']);
