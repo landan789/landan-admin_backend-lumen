@@ -19,11 +19,11 @@
         'MESSAGE' => 'succeed to show issue'
     ],
 
-    'IS_UNKNOWN_ERROR' => [
+    'IT_IS_UNKNOWN_ERROR' => [
         'STATUS' => 500,
         'RESULT' => -1,
         'CODE' => -0.01,
-        'MESSAGE' => 'is unknown error'
+        'MESSAGE' => 'it is unknown error'
     ],
 
     'IT_REQUESTS_UNDEFINED_PATH' => [
