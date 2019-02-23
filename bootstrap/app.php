@@ -101,6 +101,7 @@ $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
     require __DIR__.'/../routes/lottery.php';
+    require __DIR__.'/../routes/issue.php';
     require __DIR__.'/../routes/index.php';
 });
 
