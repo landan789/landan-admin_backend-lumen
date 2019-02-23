@@ -12,23 +12,26 @@ use Log as _Log;
 use function Aplusaccelinc\Functions\clientIP;
 
 class Log {
-    public static $oRequstAll = '';
+    public static $oRequestAll = null;
+    public static $oRequstServer = null;
+
     public static $channel = 'BACKEND';
     public static function start ($oRequest, $sJwt) {
 
         self::$oRequstAll = $oRequest->all();
-         _Log::channel(self::$channel)
-             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$oRequstAll));
+        self::$oRequstServer = $oRequest->server();
+        _Log::channel(self::$channel)
+             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequstServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
     }
 
     public static function succeed ($oRequest, $sJwt) {
         _Log::channel(self::$channel)
-            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$oRequstAll));
+            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequstServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
 
     }
 
     public static function  fail ($oRequest, $sJwt) {
          _Log::channel(self::$channel)
-             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$oRequstAll));
+             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . json_encode(self::$oRequstServer) . ' ' . $sJwt .' ' . json_encode(self::$oRequestAll));
     }
 }
