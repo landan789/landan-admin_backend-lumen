@@ -48,7 +48,7 @@ class UndefinedPathMiddleware
             'code' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.CODE'),
             'message' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.MESSAGE'),
             'data' => [],
-            'total_count' => [],
+            'total_count' => 0,
             'jwt' => ''
         ];
 
