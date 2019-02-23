@@ -16,19 +16,19 @@ class Log {
     public static $channel = 'BACKEND';
     public static function start ($oRequest, $sJwt) {
 
-        self::$requstAll = $oRequest->all();
+        self::$oRequstAll = $oRequest->all();
          _Log::channel(self::$channel)
-             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$requstAll));
+             ->info(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$oRequstAll));
     }
 
     public static function succeed ($oRequest, $sJwt) {
         _Log::channel(self::$channel)
-            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$requstAll));
+            ->critical(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$oRequstAll));
 
     }
 
     public static function  fail ($oRequest, $sJwt) {
          _Log::channel(self::$channel)
-             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$requstAll));
+             ->error(clientIP() . ' ' . $oRequest->method() . ' ' . $oRequest->fullUrl() . ' ' . $sJwt .' ' . json_encode(self::$oRequstAll));
     }
 }
