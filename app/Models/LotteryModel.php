@@ -57,17 +57,37 @@ class LotteryModel extends CoreModel {
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var array
+     * @param $iId, 12
+     * @param $aQueries, [['status', '==', '2'], ...]
+     * @param $aOptions, ['offset' => 1, 'limit' => 100]
      */
 
-    public function show (mixed $id = null): array {
+    public function show (int $iId = null, array $aQueries = null, array $aOptions = null): array {
 
-        if (is_integer($id)) {
-            $this->where('id', $id);
+        $oLotteries = $this;
+
+        if (is_integer($iId)) {
+            $oLotteries = $oLotteries->where($this->primaryKey, $iId);
         }
 
+        if ('array' === gettype($aQueries)) {
+            foreach ($aQueries as $iIndex => $aQuery){
+                if (1 === count($aQuery)) {
+                    continue;
+                }
+                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
+            }
+        }
 
-        $aLotteries = $this->get()->toArray();
+        if ('array' === gettype($aOptions) && isset($aOptions['offset']) && is_integer($aOptions['offset'])) {
+            $oLotteries = $oLotteries->offset(aOptions['offset']);
+        }
+
+        if ('array' === gettype($aOptions) && isset($aOptions['limit']) && is_integer($aOptions['limit'])) {
+            $oLotteries = $oLotteries->offset(aOptions['limit']);
+        }
+
+        $aLotteries = $oLotteries->get()->toArray();
 
         return $aLotteries;
 

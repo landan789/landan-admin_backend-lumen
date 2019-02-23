@@ -25,29 +25,41 @@ class LotteryController extends CoreController {
         //
     }
 
-    public function getAll(Request $request) {
+    public function getAll(Request $oRequest) {
 
         try {
 
-            $lotteryModel = new LotteryModel();
+//            $iId = $oRequest->input('id') ?? null;
+//
+//            $aQueries = [
+//                ['type', $oRequest->input('type') ?? null],
+//                ['high_frequentcy', $oRequest->input('high_frequentcy') ?? null]
+//            ];
+//
+//            $aOptions = [
+//              'offset' => $oRequest->input('offset') ?? null,
+//              'limit' => $oRequest->input('limit') ?? null
+//            ];
 
-            $aLotteries = $lotteryModel->show();
+            $oLotteryModel = new LotteryModel();
+
+            $aLotteries = $oLotteryModel->show();
 
             if (null === $aLotteries) {
                 throw new \Exception('FAIL_TO_SHOW_LOTTERY');
             };
 
-            Log::success($request, null);
+            Log::success($oRequest, null);
 
             $aData = [
                 'lotteries' => $aLotteries
             ];
 
             return Response::jsonSuccess('SUCCEED_TO_SHOW_LOTTERY', null, $aData, count($aLotteries));
-        } catch (\Exception $e){
-            Log::fail($request, null);
+        } catch (\Exception $oError){
+            Log::fail($oRequest, null);
 
-            return Response::jsonFail($e->getMessage());
+            return Response::jsonFail($oError->getMessage());
         }
 
     }

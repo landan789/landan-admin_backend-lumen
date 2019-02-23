@@ -21,10 +21,9 @@ $router->post('-authentication/signup', 'AuthenticationController@postSignup');
 
 
 
-$router->group(['middleware' => 'corsMiddleware'], function () use ($router) {
-
-
-});
+//$router->group(['middleware' => 'parameterMiddleware'], function () use ($router) {
+//
+//});
 
 
 $router->get('/lottery/all', 'LotteryController@getAll');
