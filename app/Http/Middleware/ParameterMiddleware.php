@@ -36,9 +36,9 @@ class ParameterMiddleware
      * @return mixed
      */
     public function handle($oRequest, Closure $cNext) {
+        
+        $aParses = parse_url($oRequest->server()['REQUEST_URI']);
 
-
-        $aParses = parse_url($_SERVER['REQUEST_URI']);
         $sQuery = $aParses['query'] ?? '';
 
         $aGets = [];
