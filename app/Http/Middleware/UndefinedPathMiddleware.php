@@ -32,7 +32,7 @@ class UndefinedPathMiddleware
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next) {
+    public function handle($oRequest, Closure $cNext) {
 
         return Response::jsonFail('REQUEST_UNDEFINED_PATH', null, 404);
 
