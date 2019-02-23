@@ -58,7 +58,7 @@
         'STATUS' => 401,
         'RESULT' => -1,
         'CODE' => -0.02,
-        'MESSAGE' => 'jwt is authorized'
+        'MESSAGE' => 'jwt is unauthorized'
     ],
     'JWT_IS_EMPTY' => [
         'STATUS' => 401,
