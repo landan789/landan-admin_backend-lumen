@@ -29,21 +29,21 @@ class LotteryController extends CoreController {
 
         try {
 
-//            $iId = $oRequest->input('id') ?? null;
-//
-//            $aQueries = [
-//                ['type', $oRequest->input('type') ?? null],
-//                ['high_frequentcy', $oRequest->input('high_frequentcy') ?? null]
-//            ];
-//
-//            $aOptions = [
-//              'offset' => $oRequest->input('offset') ?? null,
-//              'limit' => $oRequest->input('limit') ?? null
-//            ];
+            $iId = $oRequest->input('id') ?? null;
+
+            $aQueries = [
+                ['type', $oRequest->input('type') ?? null],
+                ['high_frequentcy', $oRequest->input('high_frequentcy') ?? null]
+            ];
+
+            $aOptions = [
+              'offset' => $oRequest->input('offset') ?? null,
+              'limit' => $oRequest->input('limit') ?? null
+            ];
 
             $oLotteryModel = new LotteryModel();
 
-            $aLotteries = $oLotteryModel->show();
+            $aLotteries = $oLotteryModel->show($iId, $aQueries, $aOptions);
 
             if (null === $aLotteries) {
                 throw new \Exception('FAIL_TO_SHOW_LOTTERY');

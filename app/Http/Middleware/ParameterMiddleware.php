@@ -43,7 +43,8 @@ class ParameterMiddleware
         parse_str($sQuery, $aGets);
 
         foreach ($aGets as $sKey => $mValue) {
-            $_GET[$sKey] = $mValue;
+            $GLOBALS['_GET'][$sKey] = $mValue;
+            $oRequest->request->add([$sKey => $mValue]);
         }
         return $cNext($oRequest);
     }

@@ -69,22 +69,24 @@ class LotteryModel extends CoreModel {
         if (is_integer($iId)) {
             $oLotteries = $oLotteries->where($this->primaryKey, $iId);
         }
+//
+//        if ('array' === gettype($aQueries)) {
+//            foreach ($aQueries as $iIndex => $aQuery){
+//                if (1 === count($aQuery)) {
+//                    continue;
+//                }
+//                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
+//            }
+//        }
 
-        if ('array' === gettype($aQueries)) {
-            foreach ($aQueries as $iIndex => $aQuery){
-                if (1 === count($aQuery)) {
-                    continue;
-                }
-                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
-            }
+        if ('array' === gettype($aOptions) && isset($aOptions['offset'])) {
+            $iOffset = (int)$aOptions['offset'];
+            $oLotteries = $oLotteries->offset($iOffset);
         }
 
-        if ('array' === gettype($aOptions) && isset($aOptions['offset']) && is_integer($aOptions['offset'])) {
-            $oLotteries = $oLotteries->offset(aOptions['offset']);
-        }
-
-        if ('array' === gettype($aOptions) && isset($aOptions['limit']) && is_integer($aOptions['limit'])) {
-            $oLotteries = $oLotteries->offset(aOptions['limit']);
+        if ('array' === gettype($aOptions) && isset($aOptions['limit'])) {
+            $iLimit = (int)$aOptions['limit'];
+            $oLotteries = $oLotteries->limit($iLimit);
         }
 
         $aLotteries = $oLotteries->get()->toArray();
