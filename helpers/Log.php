@@ -12,7 +12,7 @@ use Log as _Log;
 use function Aplusaccelinc\Functions\clientIP;
 
 class Log {
-    public static $requstAll = '';
+    public static $oRequstAll = '';
     public static $channel = 'BACKEND';
     public static function start ($oRequest, $sJwt) {
 
