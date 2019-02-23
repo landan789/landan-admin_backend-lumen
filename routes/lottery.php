@@ -16,7 +16,7 @@ $router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'respon
     $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
 });
 
-//$router->group(['middleware' => 'undefinedPathMiddleware'], function () use ($router) {
-//    $router->get('/lottery{any}', 'LotteryController@getAll');
-//    $router->options('/lottery{any}', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
-//});
+$router->group(['middleware' => 'undefinedPathMiddleware'], function () use ($router) {
+    $router->get('/lottery/{any:[\w\/]+}', function () {});
+    $router->options('/lottery/{any:[\w\/]+}', function () {});
+});
