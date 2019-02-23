@@ -13,7 +13,7 @@ use function Aplusaccelinc\Functions\clientIP;
 
 class Log {
     public static $requstAll = '';
-    public static $channel = 'API';
+    public static $channel = 'BACKEND';
     public static function start ($oRequest, $sJwt) {
 
         self::$requstAll = $oRequest->all();
