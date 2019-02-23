@@ -25,6 +25,9 @@ class LotteryController extends CoreController {
         //
     }
 
+    /**
+     * @param Request $oRequest
+     */
     public function getAll(Request $oRequest) {
 
         try {
@@ -58,7 +61,7 @@ class LotteryController extends CoreController {
 
             $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_LOTTERY']);
             $oRequest->request->add(['data' => $aData]);
-            $oRequest->request->add(['total' => count($aData)]);
+            $oRequest->request->add(['total_count' => count($aData)]);
             $oRequest->request->add(['jwt' => '']);
 
         } catch (\Exception $oError){
