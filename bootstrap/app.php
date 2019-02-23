@@ -103,7 +103,7 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/lottery.php';
     require __DIR__.'/../routes/issue.php';
-    require __DIR__.'/../routes/index.php';
+    require __DIR__.'/../routes/index.php';  // index.php 这个路由 一定要放最后，有先后次序问题
 });
 
 $app->configure('API');

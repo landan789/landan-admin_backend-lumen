@@ -18,5 +18,9 @@ $router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'respon
 
 $router->group(['middleware' => 'undefinedPathMiddleware'], function () use ($router) {
     $router->get('/lottery/{any:[\w\/]+}', function () {});
+    $router->post('/lottery/{any:[\w\/]+}', function () {});
+    $router->put('/lottery/{any:[\w\/]+}', function () {});
+    $router->patch('/lottery/{any:[\w\/]+}', function () {});
+    $router->delete('/lottery/{any:[\w\/]+}', function () {});
     $router->options('/lottery/{any:[\w\/]+}', function () {});
 });

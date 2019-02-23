@@ -14,3 +14,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['middleware' => 'undefinedPathMiddleware'], function () use ($router) {
+    $router->get('/{any:[\w\/]+}', function () {});
+    $router->post('/{any:[\w\/]+}', function () {});
+    $router->put('/{any:[\w\/]+}', function () {});
+    $router->patch('/{any:[\w\/]+}', function () {});
+    $router->delete('/{any:[\w\/]+}', function () {});
+    $router->options('/{any:[\w\/]+}', function () {});
+});
