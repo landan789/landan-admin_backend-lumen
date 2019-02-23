@@ -10,6 +10,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+// index.php 这个路由 一定要放最后，有先后次序问题
 
 $router->get('/', function () use ($router) {
     return $router->app->version();

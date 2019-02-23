@@ -10,6 +10,12 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+// 考虑 前置中间件 与 后置中间件
+// 执行的先后次序是 parameterMiddleware 的 handle 主程序
+//              > logMiddleware 的 handle 主程序
+//              > Controller的 handle 主程序
+//              > responseMiddleware 的 handle 主程序
+//              > logMiddleware 的 terminate 主程序
 
 $router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'responseMiddleware']], function () use ($router) {
     $router->get('/lottery/all', 'LotteryController@getAll');
