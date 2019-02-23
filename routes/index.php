@@ -14,9 +14,3 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-
-$router->group(['middleware' => ['parameterMiddleware', 'responseMiddleware', 'undefinedPathMiddleware']], function () use ($router) {
-    $router->get('/lottery/all', 'LotteryController@getAll');
-    $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
-    $router->get('/issue/all', 'IssueController@getAll');
-});
