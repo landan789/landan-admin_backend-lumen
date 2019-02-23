@@ -32,9 +32,10 @@ class AfterMiddleware
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next) {
+    public function handle($oRequest, Closure $cNext) {
 
-        return Response::jsonFail('REQUEST_UNDEFINED_PATH', null, 404);
-
+        // 「后置中间件（AfterMiddleware）」运行于请求处理之后：
+        $oResponse = $cNext($oRequest);
+        return $oResponse;
     }
 }

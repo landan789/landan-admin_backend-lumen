@@ -49,17 +49,25 @@ class LotteryController extends CoreController {
                 throw new \Exception('IT_FAILS_TO_SHOW_LOTTERY');
             };
 
-            Log::success($oRequest, null);
 
             $aData = [
                 'lotteries' => $aLotteries
             ];
 
-            return Response::jsonSuccess('IT_SUCCEEDS_TO_SHOW_LOTTERY', null, $aData, count($aLotteries));
+            Log::success($oRequest, null);
+
+            $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_LOTTERY']);
+            $oRequest->request->add(['data' => $aData]);
+            $oRequest->request->add(['total' => count($aData)]);
+            $oRequest->request->add(['jwt' => '']);
+
         } catch (\Exception $oError){
             Log::fail($oRequest, null);
+            $sMessage = $oError->getMessage();
+            $oRequest->request->add(['message' => $sMessage]);
 
-            return Response::jsonFail($oError->getMessage());
+        } finally {
+
         }
 
     }

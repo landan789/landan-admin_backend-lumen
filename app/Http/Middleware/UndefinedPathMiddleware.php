@@ -25,7 +25,7 @@ class UndefinedPathMiddleware
     }
 
     /**
-     * Handle an incoming request.
+     * 后置中间件，统一处理 未定义的 API path 请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -34,7 +34,7 @@ class UndefinedPathMiddleware
      */
     public function handle($oRequest, Closure $cNext) {
 
+        $cNext($oRequest);
         return Response::jsonFail('IT_REQUESTS_UNDEFINED_PATH', null, 404);
-
     }
 }

@@ -4,13 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use Aplusaccelinc\Helpers\Jwt;
-use Aplusaccelinc\Helpers\Response;
+use helpers\Jwt;
+use helpers\Response;
 
-/*
- * 修补 Lumen Route 无法取得 GET parameter 的问题
- */
-class ParameterMiddleware
+class AfterMiddleware
 {
     /**
      * The authentication guard factory instance.
@@ -28,7 +25,7 @@ class ParameterMiddleware
     }
 
     /**
-     * 前置中间件，处理 Lumen Router 丢失 GET parameter 的问题
+     * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -37,17 +34,7 @@ class ParameterMiddleware
      */
     public function handle($oRequest, Closure $cNext) {
 
-        $aParses = parse_url($oRequest->server()['REQUEST_URI']);
-
-        $sQuery = $aParses['query'] ?? '';
-
-        $aGets = [];
-        parse_str($sQuery, $aGets);
-
-        foreach ($aGets as $sKey => $mValue) {
-            $GLOBALS['_GET'][$sKey] = $mValue;
-            $oRequest->request->add([$sKey => $mValue]);
-        }
+        // 「前置中间件（BeforeMiddleware）」运行于请求处理之前：
         return $cNext($oRequest);
     }
 }
