@@ -7,7 +7,7 @@ use Closure;
 use helpers\Jwt;
 use helpers\Response;
 
-class AfterMiddleware
+class BeforeMiddleware
 {
     /**
      * The authentication guard factory instance.
@@ -36,5 +36,11 @@ class AfterMiddleware
 
         // 「前置中间件（BeforeMiddleware）」运行于请求处理之前：
         return $cNext($oRequest);
+    }
+
+    // HTTP 响应被发送到浏览器之后才运行
+    public function terminate($request, $response)
+    {
+        // 保存 session 数据...
     }
 }
