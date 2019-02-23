@@ -36,11 +36,14 @@ class ParameterMiddleware
      * @return mixed
      */
     public function handle($oRequest, Closure $cNext) {
+
+
         $aParses = parse_url($_SERVER['REQUEST_URI']);
-        $sQuery = $aParses['query'];
+        $sQuery = $aParses['query'] ?? '';
 
         $aGets = [];
         parse_str($sQuery, $aGets);
+
 
         foreach ($aGets as $sKey => $mValue) {
             $GLOBALS['_GET'][$sKey] = $mValue;
