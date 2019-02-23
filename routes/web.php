@@ -37,6 +37,3 @@ $router->group(['middleware' => 'parameterMiddleware'], function () use ($router
 //});
 
 $router->get('/{any}', ['middleware' => 'undefinedPathMiddleware']);
-
-// TODO 想用 middleware
-// TODO 请求 不存在的 path , 回传 request undefined path
