@@ -15,12 +15,6 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->post('-authentication/signin', 'AuthenticationController@postSignin');
-$router->post('-authentication/signout', 'AuthenticationController@postSignout');
-$router->post('-authentication/signup', 'AuthenticationController@postSignup');
-
-
-
 $router->group(['middleware' => 'parameterMiddleware'], function () use ($router) {
     $router->get('/lottery/all', 'LotteryController@getAll');
     $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
@@ -33,15 +27,6 @@ $router->group(['middleware' => 'parameterMiddleware'], function () use ($router
     $router->options('/lottery/all{any}', ['middleware' => 'undefinedPathMiddleware']);
 
 });
-
-
-
-//$router->group(['middleware' => 'authenticationMiddleware'], function () use ($router) {
-//
-//    $router->get('user/{user_id}/one', 'UserController@getOne');
-//    $router->get('user/all', 'UserController@getAll');
-//
-//});
 
 $router->get('/{any}', ['middleware' => 'undefinedPathMiddleware']);
 $router->post('/{any}', ['middleware' => 'undefinedPathMiddleware']);
