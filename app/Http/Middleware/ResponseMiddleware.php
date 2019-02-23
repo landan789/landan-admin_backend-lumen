@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: LANDAN
+ * Date: 2018/9/28
+ * Time: 13:13
+ */
 
 namespace App\Http\Middleware;
 

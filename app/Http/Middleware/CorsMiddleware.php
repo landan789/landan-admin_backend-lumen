@@ -1,10 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: landa
- * Date: 2019/2/21
- * Time: 13:56
+ * User: LANDAN
+ * Date: 2018/9/28
+ * Time: 13:13
  */
+
 namespace App\Http\Middleware;
 
 use Closure;
