@@ -42,7 +42,7 @@ class IssueController extends Controller {
                 'issues' => $aIssues
             ];
 
-            return Response::jsonSuccess('SUCCEED_TO_SHOW_ISSUE', null, $aData, count($aIssues));
+            return Response::jsonSuccess('IT_SUCCEEDS_TO_SHOW_ISSUE', null, $aData, count($aIssues));
         } catch (\Exception $e){
             Log::fail($request, null);
 

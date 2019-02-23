@@ -12,11 +12,11 @@
         'CODE' => 0,
         'MESSAGE' => 'succeed to show lottery'
     ],
-    'SUCCEED_TO_SHOW_ISSUE' => [
+    'IT_SUCCEEDS_TO_SHOW_ISSUE' => [
         'STATUS' => 200,
         'RESULT' => 1,
         'CODE' => 0,
-        'MESSAGE' => 'succeed to show issue'
+        'MESSAGE' => 'it succeeds to show issue'
     ],
 
     'IT_IS_UNKNOWN_ERROR' => [
