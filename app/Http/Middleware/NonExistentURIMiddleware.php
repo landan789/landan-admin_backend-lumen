@@ -13,7 +13,7 @@ use Closure;
 use helpers\Jwt;
 use helpers\Response;
 
-class UndefinedPathMiddleware
+class NonExistentURIMiddleware
 {
     /**
      * The authentication guard factory instance.
