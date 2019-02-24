@@ -32,19 +32,25 @@ class LogMiddleware
      * @return mixed
      */
     public function handle($oRequest, Closure $cNext) {
-        Log::start($oRequest, '');
+        Log::start($oRequest);
 
-        return $cNext($oRequest);
+        $oResponse = $cNext($oRequest);
+//        $sMessage = $oRequest->input('message');
+//        if (1 === config('RESPONSES.' . $sMessage . '.RESULT')) {
+//            Log::succeed($oRequest);
+//            return $oResponse;
+//        }
+//        Log::fail($oRequest);
+        return $oResponse;
     }
 
     // HTTP 响应被发送到浏览器之后才运行
-    public function terminate($oRequest, $oResponse)
-    {
+    public function terminate($oRequest, $oResponse){
         $sMessage = $oRequest->input('message');
         if (1 === config('RESPONSES.' . $sMessage . '.RESULT')) {
-            Log::succeed($oRequest, '');
+            Log::succeed($oRequest);
             return;
         }
-        Log::fail($oRequest, '');
+        Log::fail($oRequest);
     }
 }

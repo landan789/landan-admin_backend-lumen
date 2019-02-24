@@ -27,15 +27,15 @@ class Log {
 
     public static function start ($oRequest) {
         $sRequestUri = $oRequest->server()['REQUEST_URI'];
-        $sServerName = $oRequest->server()['SERVER_NAME'];
-        $sRequestScheme = $oRequest->server()['REQUEST_SCHEME'];
+        $sHttpHost = $oRequest->server()['HTTP_HOST'];
+        $sServerProtocol = $oRequest->server()['SERVER_PROTOCOL'];
 
         $aSegments = explode('/', $sRequestUri);
         $sChannel = $aSegments['1'] ?? self::$channel;
 
         self::$channel = $sChannel;
-        self::$url = $sRequestScheme . '://' . $sServerName . $sRequestUri;
-        self::$ip = clientIP();
+        self::$url = $sServerProtocol . ' ' . $sHttpHost . $sRequestUri;
+        self::$ip = clientIP($oRequest);
         self::$method = $oRequest->method();
         self::$jwt = $oRequest->Header('Authorization') ?? $oRequest->Header('authorization') ?? $oRequest->Header('AUTHORIZATION') ?? '';
 

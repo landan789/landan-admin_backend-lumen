@@ -29,7 +29,7 @@ class LotteryController extends CoreController {
     public function getAll(Request $oRequest) {
 
         try {
-
+            xdebug_break();
             $iId = $oRequest->input('id') ?? null;
 
             $aQueries = [
