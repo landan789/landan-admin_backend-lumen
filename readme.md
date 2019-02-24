@@ -36,7 +36,7 @@ curl 127.0.0.1:4001
 [*]. 以 php, swoole, xdebug 开启 php lumen 服务
 
 ```shell
-php -dxdebug.remote_autostart=1 -dxdebug.remote_host=127.0.0.1 -dxdebug.remote_port=9000 -dxdebug.remote_enable=1 artisan swoole:http start -vvv
+php -dxdebug.remote_autostart=1 -dxdebug.remote_host=10.0.2.2 -dxdebug.remote_port=9000 -dxdebug.remote_enable=1 artisan swoole:http start -vvv
 ```
 ---------------------------------------
 
@@ -59,6 +59,22 @@ composer install
 [*]. 考虑好维护的问题，
      请不要忽略 configs 底下的设定档案
      对于运维 环境变数 ，统一由 .env 档案去修改配置
+     ！！！！！！！！！！！！！！！！！！！！！！！
+     ！！！！！！！！！！！！！！！！！！！！！！！
+     ！！！！！！！！！！！！！！！！！！！！！！！
+     ！！！！！！！！！！！！！！！！！！！！！！！
+```shell
+略
+```
+---------------------------------------
+
+
+
+[*]. 考虑好维护的问题，
+     Controller,  命名请务必使用 {单数名词 + Controller}
+     Model  命名请务必使用 {单数名词 + Model}
+     Middleware 命名请务必使用 {单数名词 + Middleware}
+
      ！！！！！！！！！！！！！！！！！！！！！！！
      ！！！！！！！！！！！！！！！！！！！！！！！
      ！！！！！！！！！！！！！！！！！！！！！！！

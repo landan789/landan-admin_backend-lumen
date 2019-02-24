@@ -17,9 +17,24 @@
 //              > responseMiddleware 的 handle 主程序
 //              > logMiddleware 的 terminate 主程序
 
+
+/*
+ * 路由规则
+ * $reouter->{方法名}('/{控制器一值的名词}/{控制器方法，名词动词名称都可}', ' {路由一致的命名Controller}@{方法名}{控制器方法，名词动词名称都可}')
+ *
+ *
+ * */
+
 $router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'responseMiddleware']], function () use ($router) {
     $router->get('/lottery/all', 'LotteryController@getAll');
     $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
+});
+
+$router->group(['middleware' => ['logMiddleware', 'notAllowedMethodMiddleware']], function () use ($router) {
+    $router->post('/lottery/one',  function () {});
+    $router->put('/lottery/one',  function () {});
+    $router->patch('/lottery/one',  function () {});
+    $router->delete('/lottery/one',  function () {});
 });
 
 $router->group(['middleware' => 'nonexistentURIMiddleware'], function () use ($router) {
@@ -30,3 +45,4 @@ $router->group(['middleware' => 'nonexistentURIMiddleware'], function () use ($r
     $router->delete('/lottery/{any:[\w\/]+}', function () {});
     $router->options('/lottery/{any:[\w\/]+}', function () {});
 });
+

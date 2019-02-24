@@ -69,6 +69,7 @@ $app->singleton(
      'logMiddleware' => App\Http\Middleware\LogMiddleware::class,
      'authenticationMiddleware' => App\Http\Middleware\AuthenticationMiddleware::class,
      'nonexistentURIMiddleware' => App\Http\Middleware\NonExistentURIMiddleware::class,
+     'notAllowedMethodMiddleware' => App\Http\Middleware\NotAllowedMethodMiddleware::class,
      'parameterMiddleware' => App\Http\Middleware\ParameterMiddleware::class,
      'responseMiddleware' => App\Http\Middleware\ResponseMiddleware::class
  ]);
