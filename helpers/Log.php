@@ -9,7 +9,7 @@
 namespace helpers;
 
 use Log as _Log;
-use function Aplusaccelinc\Functions\clientIP;
+use function utilities\clientIP;
 
 class Log {
     public static $requestAll = '';

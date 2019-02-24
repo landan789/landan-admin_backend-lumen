@@ -1,6 +1,6 @@
 <?php
 
-namespace Aplusaccelinc\Functions;
+namespace utilities;
 /**
  * Created by PhpStorm.
  * User: User

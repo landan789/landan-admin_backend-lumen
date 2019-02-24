@@ -28,7 +28,7 @@
             "core\\model\\": "core/model/",
             "core\\controller\\": "core/controller/"
         },
-        "files" : ["functions/clientIP.php"]
+        "files" : ["utilities/clientIP.php"]
     },
     "autoload-dev": {
         "classmap": [
