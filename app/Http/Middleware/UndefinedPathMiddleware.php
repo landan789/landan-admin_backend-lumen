@@ -42,11 +42,11 @@ class UndefinedPathMiddleware
 
         $cNext($oRequest);
 
-        $iStatus = config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.STATUS');
+        $iStatus = config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.STATUS');
         $json = [
-            'result' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.RESULT'),
-            'code' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.CODE'),
-            'message' => config('RESPONSES.' . 'IT_REQUESTS_UNDEFINED_PATH' . '.MESSAGE'),
+            'result' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.RESULT'),
+            'code' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.CODE'),
+            'message' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.MESSAGE'),
             'data' => [],
             'total_count' => 0,
             'jwt' => ''

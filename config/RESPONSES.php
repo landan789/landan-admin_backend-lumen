@@ -63,13 +63,12 @@
         'MESSAGE' => 'it is unknown error'
     ],
 
-    'IT_REQUESTS_UNDEFINED_PATH' => [
+    'IT_REQUESTS_NONEXISTENT_URI' => [
         'STATUS' => 501,
         'RESULT' => -1,
         'CODE' => -0.02,
-        'MESSAGE' => 'it requests undefined path'
+        'MESSAGE' => 'it requests nonexistent URI'
     ],
-
     'IT_FAILS_TO_SHOW_LOTTERY' => [
         'STATUS' => 500,
         'RESULT' => -1,
