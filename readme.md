@@ -72,8 +72,8 @@ composer install
 
 [*]. 考虑好维护的问题，
      Controller,  命名请务必使用 {单数名词 + Controller}
-     Model  命名请务必使用 {单数名词 + Model}
-     Middleware 命名请务必使用 {单数名词 + Middleware}
+     Model        命名请务必使用 {单数名词 + Model}
+     Middleware   命名请务必使用 {单数名词 + Middleware}
 
      ！！！！！！！！！！！！！！！！！！！！！！！
      ！！！！！！！！！！！！！！！！！！！！！！！
