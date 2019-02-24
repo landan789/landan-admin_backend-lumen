@@ -27,11 +27,48 @@ php artisan swoole:http start
 ```
 ---------------------------------------
 
-[4]. 步骤五，访问 http://127.0.0.1:4001
+[5]. 步骤五，访问 http://127.0.0.1:4001
 ```shell
 curl 127.0.0.1:4001
 ```
 ---------------------------------------
+
+
+## Remote debug 步骤
+
+[1]. 步骤一，在PHPStorm，打开 debug 监听，一定要先打开，否则监听失败
+```Os
+略
+```
+---------------------------------------
+
+[2]. 步骤二，在伺服器，执行 php debug 模式
+```shell
+php -dxdebug.remote_autostart=1 -dxdebug.remote_host=10.0.2.2 -dxdebug.remote_port=9000 -dxdebug.remote_enable=1 artisan swoole:http start -vvv
+```
+---------------------------------------
+
+
+[3]. 步骤三，在PHPStorm，Resume program 完所有的 swoole 程序
+```OS
+略
+```
+---------------------------------------
+
+[4]. 步骤四，在 PHPStorm，下你想查看的断点
+```OS
+略
+```
+---------------------------------------
+
+
+[5]. 步骤五，在 浏览器，访问 http://127.0.0.1:4000 (不需要放 XDEBUG COOKIE)
+```OS
+略
+```
+---------------------------------------
+
+## 其他注意事项
 
 [*]. 以 php, swoole, xdebug 开启 php lumen 服务
 
