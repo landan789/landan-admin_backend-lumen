@@ -23,7 +23,7 @@ class Log {
     public static $jwt = '';
     public static $url = '';
 
-    public static $channel = 'any';
+    public static $channel = 'any'; // 如果找不到 LOG 的 channel,  就 存放在 /storage/logs/any.log
 
     public static function start ($oRequest) {
         $sRequestUri = $oRequest->server()['REQUEST_URI'];
