@@ -26,7 +26,7 @@ class LotteryController extends CoreController {
     /**
      * @param Request $oRequest
      */
-    public function getAll(Request $oRequest) {
+    public function getShow(Request $oRequest) {
 
         try {
             $iId = null;
@@ -84,20 +84,15 @@ class LotteryController extends CoreController {
 
     }
 
-    public function getOne(Request $request, $customerId) {
-
-
-    }
-
-    public function postOne($request) {
+    public function postAdd($request) {
 
     }
 
-    public function putOne($request) {
+    public function putEdit($request) {
 
     }
 
-    public function deleteOne($request) {
+    public function deleteRemove($request) {
 
     }
 }

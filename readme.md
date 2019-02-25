@@ -109,7 +109,7 @@ composer install
 
 
 [*]. 考虑好维护，
-     lumen Controller 的方法名,  命名请务必使用 { REST方法名 + 动词 } 如 AuthenticationController.postSignin
+     lumen Controller 的方法名,  命名请务必使用 { REST方法名 + 动词 } 如 AuthenticationController.postSignin, UserController.getShow
 
      ！！！！！！！！！！！！！！！！！！！！！！！
      ！！！！！！！！！！！！！！！！！！！！！！！

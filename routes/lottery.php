@@ -26,15 +26,15 @@
  * */
 
 $router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'responseMiddleware']], function () use ($router) {
-    $router->get('/lottery/all', 'LotteryController@getAll');
-    $router->options('/lottery/all', 'LotteryController@getAll'); // Axios 会隐含 打 METHOD 为 options
+    $router->get('/lottery/show', 'LotteryController@getShow');
+    $router->options('/lottery/show', 'LotteryController@getShow'); // Axios 会隐含 打 METHOD 为 options
 });
 
 $router->group(['middleware' => ['logMiddleware', 'notAllowedMethodMiddleware']], function () use ($router) {
-    $router->post('/lottery/one',  function () {});
-    $router->put('/lottery/one',  function () {});
-    $router->patch('/lottery/one',  function () {});
-    $router->delete('/lottery/one',  function () {});
+    $router->post('/lottery/add',  function () {});
+    $router->put('/lottery/edit',  function () {});
+    $router->patch('/lottery/edit',  function () {});
+    $router->delete('/lottery/remove',  function () {});
 });
 
 $router->group(['middleware' => 'nonexistentURIMiddleware'], function () use ($router) {
