@@ -72,14 +72,23 @@ class LotteryModel extends CoreModel {
             $oLotteries = $oLotteries->where($this->primaryKey, $iId);
         }
 
-        if ('array' === gettype($aQueries)) {
-            foreach ($aQueries as $iIndex => $aQuery){
-                if (1 === count($aQuery)) {
-                    continue;
-                }
-                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
+        foreach ($aQueries as $sField => $mQuery){
+            if ('integer' === gettype($mQuery) || 'string' === gettype($mQuery) || 'boolean' === gettype($mQuery)) {
+                $oLotteries = $oLotteries->where($sField, $mQuery);
+                continue;
+            }
+
+            if (1 === count($mQuery)) {
+                $oLotteries = $oLotteries->where($sField, $mQuery[0]);
+                continue;
+            }
+
+            if (2 <= count($mQuery)) {
+                $oLotteries = $oLotteries->where($sField, $mQuery[0], $mQuery[1]);
+                continue;
             }
         }
+
 
         if ('array' === gettype($aOptions) && isset($aOptions['offset'])) {
             $iOffset = (int)$aOptions['offset'];
@@ -108,15 +117,23 @@ class LotteryModel extends CoreModel {
         if (is_integer($iId)) {
             $oLotteries = $oLotteries->where($this->primaryKey, $iId);
         }
-//
-//        if ('array' === gettype($aQueries)) {
-//            foreach ($aQueries as $iIndex => $aQuery){
-//                if (1 === count($aQuery)) {
-//                    continue;
-//                }
-//                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
-//            }
-//        }
+
+        foreach ($aQueries as $sField => $mQuery){
+            if ('integer' === gettype($mQuery) || 'string' === gettype($mQuery) || 'boolean' === gettype($mQuery)) {
+                $oLotteries = $oLotteries->where($sField, $mQuery);
+                continue;
+            }
+
+            if (1 === count($mQuery)) {
+                $oLotteries = $oLotteries->where($sField, $mQuery[0]);
+                continue;
+            }
+
+            if (2 <= count($mQuery)) {
+                $oLotteries = $oLotteries->where($sField, $mQuery[0], $mQuery[1]);
+                continue;
+            }
+        }
 
         $oLotteries->select($this->primaryKey);
 
