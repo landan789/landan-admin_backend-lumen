@@ -70,7 +70,7 @@ class LotteryController extends CoreController {
 
             $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_LOTTERY']);
             $oRequest->request->add(['data' => $aData]);
-            $oRequest->request->add(['total_count' => count($aData)]);
+            $oRequest->request->add(['total_count' => count($aLotteries)]);
             $oRequest->request->add(['jwt' => '']);
 
         } catch (\Exception $oError){
