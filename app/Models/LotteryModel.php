@@ -55,7 +55,9 @@ class LotteryModel extends CoreModel {
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * 不使用 select, get 关键字，避免与 lumen model 框架搞混
+     * 不使用 SELECT 关键字，避免与 SQL 搞混
+     * 不使用 GET 关键字，避免与 RESTful 搞混
      *
      * @param $iId, 12
      * @param $aQueries, [['status', '==', '2'], ...]
@@ -64,7 +66,7 @@ class LotteryModel extends CoreModel {
 
     public function show (int $iId = null, array $aQueries = null, array $aOptions = null): array {
 
-        $oLotteries = $this;
+        $oLotteries = new self();
 
         if (is_integer($iId)) {
             $oLotteries = $oLotteries->where($this->primaryKey, $iId);
@@ -92,6 +94,65 @@ class LotteryModel extends CoreModel {
         $aLotteries = $oLotteries->get()->toArray();
 
         return $aLotteries;
+
+    }
+
+    /*
+     * 不使用 count 关键字，避免与 lumen model 框架搞混
+     * 不使用 COUNT 关键字，避免与 SQL 搞混
+     * */
+    public function num (int $iId = null, array $aQueries = null): int {
+
+        $oLotteries = new self();
+
+        if (is_integer($iId)) {
+            $oLotteries = $oLotteries->where($this->primaryKey, $iId);
+        }
+//
+//        if ('array' === gettype($aQueries)) {
+//            foreach ($aQueries as $iIndex => $aQuery){
+//                if (1 === count($aQuery)) {
+//                    continue;
+//                }
+//                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
+//            }
+//        }
+
+        $oLotteries->select($this->primaryKey);
+
+        $iCount = $oLotteries->count();
+
+        return $iCount;
+
+    }
+
+    /*
+     * 不使用 insert 关键字，避免与 lumen model 框架搞混
+     * 不使用 INSERT 关键字， 避免与 SQL 搞混
+     * 不使用 POST 关键字，避免与 RESTful 搞混
+     * */
+    public function add (int $iId = null, $aLottery): array {
+
+
+    }
+
+    /*
+     * 不使用 update 关键字，避免与 lumen model 框架搞混
+     * 不使用 UPDATE 关键字，避免与 SQL 搞混
+     * 不使用 PUT 关键字，避免与 RESTful 搞混
+     * */
+    public function edit (int $iId = null, $aLottery): array {
+
+
+    }
+
+    /*
+     * 不使用 delete 关键字，避免与 lumen model 框架搞混
+     * 不使用 DELETE 关键字，避免与 SQL 搞混
+     * 不使用 DELETE 关键字，避免与 RESTful 搞混
+     * */
+    public function remove (int $iId = null): array {
+
 
     }
 }

@@ -58,6 +58,7 @@ class LotteryController extends CoreController {
             $oLotteryModel = new LotteryModel();
 
             $aLotteries = $oLotteryModel->show($iId, $aQueries, $aOptions);
+            $iTotalCount = $oLotteryModel->num($iId, $aQueries);
 
             if (null === $aLotteries) {
                 throw new \Exception('IT_FAILS_TO_SHOW_LOTTERY');
@@ -70,7 +71,7 @@ class LotteryController extends CoreController {
 
             $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_LOTTERY']);
             $oRequest->request->add(['data' => $aData]);
-            $oRequest->request->add(['total_count' => count($aLotteries)]);
+            $oRequest->request->add(['total_count' => $iTotalCount]);
             $oRequest->request->add(['jwt' => '']);
 
         } catch (\Exception $oError){

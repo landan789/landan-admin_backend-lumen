@@ -93,7 +93,7 @@ composer install
 ---------------------------------------
 
 
-[*]. 考虑好维护的问题，
+[*]. 考虑好维护，
      请不要忽略 configs 底下的设定档案
      对于运维 环境变数 ，统一忽略 .env, 
      由 .env 档案去修改配置
@@ -108,11 +108,8 @@ composer install
 
 
 
-[*]. 考虑好维护的问题，
-     lumen 的 Controller,  命名请务必使用 {单数名词 + Controller}
-     lumen 的 Model        命名请务必使用 {单数名词 + Model}
-     lumen 的 Middleware   命名请务必使用 {单数名词 + Middleware}
-     MySQL 的 数据表        命名请务必使用 {复数名词}
+[*]. 考虑好维护，
+     lumen Controller 的方法名,  命名请务必使用 { REST方法名 + 动词 } 如 AuthenticationController.postSignin
 
      ！！！！！！！！！！！！！！！！！！！！！！！
      ！！！！！！！！！！！！！！！！！！！！！！！
@@ -123,7 +120,7 @@ composer install
 ```
 ---------------------------------------
 
-[*]. 考虑好维护的问题，
+[*]. 考虑好维护，
      请忽略 /vender 底下的 代码，
      /vender 地下的代码不要进版本库
      改用 composer.json 去控制
