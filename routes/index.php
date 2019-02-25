@@ -12,11 +12,8 @@
 */
 // index.php 这个路由 一定要放最后，有先后次序问题
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
-
-$router->group(['middleware' => 'undefinedPathMiddleware'], function () use ($router) {
+$router->group(['middleware' => 'nonexistentURIMiddleware'], function () use ($router) {
+    $router->get('/', function () { });
     $router->get('/{any:[\w\/]+}', function () {});
     $router->post('/{any:[\w\/]+}', function () {});
     $router->put('/{any:[\w\/]+}', function () {});
