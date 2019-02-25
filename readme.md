@@ -62,7 +62,7 @@ php -dxdebug.remote_autostart=1 -dxdebug.remote_host=10.0.2.2 -dxdebug.remote_po
 ---------------------------------------
 
 
-[5]. 步骤五，在 浏览器，访问 http://127.0.0.1:4000 (不需要放 XDEBUG COOKIE)
+[5]. 步骤五，在 浏览器，访问 http://127.0.0.1:4001 (不需要放 XDEBUG COOKIE)
 ```OS
 略
 ```
