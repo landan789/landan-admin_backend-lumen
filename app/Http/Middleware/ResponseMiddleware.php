@@ -54,10 +54,10 @@ class ResponseMiddleware
         $json = [
             'result' => config('RESPONSES.' . $sMessage . '.RESULT') ? config('RESPONSES.' . $sMessage . '.RESULT') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.RESULT'),
             'code' => $sMessage ?  config('RESPONSES.' . $sMessage . '.CODE') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.CODE'),
+            'jwt' => $sJwt,
             'message' => $sMessage,
-            'data' => $aData,
             'total_count' => $iTotalCount,
-            'jwt' => $sJwt
+            'data' => $aData
         ];
 
         return response()->json($json, $iStatus);

@@ -29,17 +29,31 @@ class LotteryController extends CoreController {
     public function getAll(Request $oRequest) {
 
         try {
-            $iId = $oRequest->input('id') ?? null;
+            $iId = null;
+            $aQueries = [];
+            $aOptions = [];
 
-            $aQueries = [
-                ['type', $oRequest->input('type') ?? null],
-                ['high_frequentcy', $oRequest->input('high_frequentcy') ?? null]
-            ];
+            if ($oRequest->input('id')) {
+                $iId = $oRequest->input('id');
+            }
 
-            $aOptions = [
-              'offset' => $oRequest->input('offset') ?? $this->offset ?? null,
-              'limit' => $oRequest->input('limit') ?? $this->limit ?? null
-            ];
+            if ($oRequest->input('type')) {
+                $aQueries['type'] = $oRequest->input('type');
+            }
+
+            if ($oRequest->input('high_frequentcy')) {
+                $aQueries['high_frequentcy'] = $oRequest->input('high_frequentcy');
+            }
+
+            $aOptions['offset'] = $this->offset;
+            if ($oRequest->input('offset')) {
+                $aOptions['offset'] = $oRequest->input('offset');
+            }
+
+            $aOptions['limit'] = $this->limit;
+            if ($oRequest->input('limit')) {
+                $aOptions['limit'] = $oRequest->input('limit');
+            }
 
             $oLotteryModel = new LotteryModel();
 
