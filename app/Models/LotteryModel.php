@@ -71,15 +71,15 @@ class LotteryModel extends CoreModel {
         if (is_integer($iId)) {
             $oLotteries = $oLotteries->where($this->primaryKey, $iId);
         }
-//
-//        if ('array' === gettype($aQueries)) {
-//            foreach ($aQueries as $iIndex => $aQuery){
-//                if (1 === count($aQuery)) {
-//                    continue;
-//                }
-//                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
-//            }
-//        }
+
+        if ('array' === gettype($aQueries)) {
+            foreach ($aQueries as $iIndex => $aQuery){
+                if (1 === count($aQuery)) {
+                    continue;
+                }
+                $oLotteries = (3 <= count($aQuery)) ? $oLotteries->where($aQuery[0], $aQuery[1], $aQuery[2]) : $oLotteries->where($aQuery[0], $aQuery[1]);
+            }
+        }
 
         if ('array' === gettype($aOptions) && isset($aOptions['offset'])) {
             $iOffset = (int)$aOptions['offset'];

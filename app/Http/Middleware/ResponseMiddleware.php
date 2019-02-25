@@ -45,15 +45,15 @@ class ResponseMiddleware
     public function handle($oRequest, Closure $cNext){
 
         $cNext($oRequest);
-        $sMessage = $oRequest->input('message') ? strtoupper($oRequest->input('message')) : 'IT_IS_UNKNOWN_ERROR';
+        $sMessage = $oRequest->input('message') && isset(config('RESPONSES')[strtoupper($oRequest->input('message'))]) ? strtoupper($oRequest->input('message')) : 'IT_IS_UNKNOWN_ERROR' . ' ' . $oRequest->input('message');
         $aData = $oRequest->input('data') ?? [];
         $iTotalCount = $oRequest->input('total_count') ?? 0;
         $sJwt = $oRequest->input('jwt') ?? '';
 
-        $iStatus = $sMessage ? config('RESPONSES.' . $sMessage . '.STATUS') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.STATUS');
+        $iStatus = $sMessage && isset(config('RESPONSES')[$sMessage]) ? config('RESPONSES.' . $sMessage . '.STATUS') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.STATUS');
         $json = [
             'result' => config('RESPONSES.' . $sMessage . '.RESULT') ? config('RESPONSES.' . $sMessage . '.RESULT') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.RESULT'),
-            'code' => $sMessage ?  config('RESPONSES.' . $sMessage . '.CODE') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.CODE'),
+            'code' => $sMessage && isset(config('RESPONSES')[$sMessage]) ?  config('RESPONSES.' . $sMessage . '.CODE') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.CODE'),
             'jwt' => $sJwt,
             'message' => $sMessage,
             'total_count' => $iTotalCount,
