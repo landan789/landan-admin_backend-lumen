@@ -34,7 +34,13 @@ class ParameterMiddleware
     }
 
     /**
-     * 前置中间件，处理 Lumen Router 丢失 GET parameter 的问题
+     * 前置中间件，处理 Nginx 丢失 GET parameter (query_string) 的问题
+     * 也可不使用此 middleware 使用 Nginx
+     *
+     *     location / {
+     *         try_files $uri $uri/ /index.php?$query_string;
+     *     }
+     *
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
