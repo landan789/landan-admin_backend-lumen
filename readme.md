@@ -21,7 +21,7 @@ composer install
 
 
 
-[4]. 步骤四，应以 php, swoole, supervisord 开启 php lumen 服务
+[4]. 步骤四，应以 php, swoole, supervisor 开启 php lumen 服务
 ```shell
 php artisan swoole:http start
 ```
