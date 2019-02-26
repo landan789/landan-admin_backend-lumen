@@ -11,30 +11,29 @@ namespace helpers;
 use \Firebase\JWT\JWT as FIREBASE_JWT_JWT;
 
 class Jwt {
-    public static function encode($userId, $customerId, $expires){
+    public static function encode(int $iUserId, int $tExpires): string {
 
         // uid is very easy to be intruded, so we do a extra encoding for it.
         // cid is very easy to be intruded, so we do a extra encoding for it
 
         $payload = [
-            'sub' => config('API.JWT.SUBJECT'),
-            'iss' => config('API.JWT.ISSUER'),
-            'adu' => config('API.JWT.AUDIENCE'),
-            'exp' => $expires && 0 < $expires ? $expires : time() + config('API.JWT.EXPIRES'),
+            'sub' => config('JWT.SUBJECT'),
+            'iss' => config('JWT.ISSUER'),
+            'adu' => config('JWT.AUDIENCE'),
+            'exp' => $tExpires && 0 < $tExpires ? $tExpires : time() + config('JWT.EXPIRES'),
             'iat' => time(),
-            'uid' => $userId ? $userId : '',
-            'cid' => $customerId ? $customerId : ''
+            'uid' => $iUserId ?? ''
         ];
 
 
-        $jwt = FIREBASE_JWT_JWT::encode($payload,  config('API.JWT.SECRET'));
+        $sJwt = FIREBASE_JWT_JWT::encode($payload,  config('JWT.SECRET'));
 
-        return $jwt;
+        return $sJwt;
     }
 
-    public static function decode($jwt) {
-        $payload = FIREBASE_JWT_JWT::decode($jwt, config('API.JWT.SECRET'), array('HS256'));
+    public static function decode(string $sJwt): array {
+        $aPayload = FIREBASE_JWT_JWT::decode($sJwt, config('JWT.SECRET'), array(config('JWT.ALGORITHM')));
 
-        return $payload;
+        return $aPayload;
     }
 }
