@@ -23,9 +23,12 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
- $app->withFacades();
+$app->configure('JWT');
+$app->configure('RESPONSES');
+$app->configure('swoole_http');
 
- $app->withEloquent();
+$app->withFacades();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -107,10 +110,6 @@ $app->router->group([
     require __DIR__.'/../routes/issue.php';
     require __DIR__.'/../routes/index.php';  // index.php 这个路由 一定要放最后，有先后次序问题
 });
-
-$app->configure('API');
-$app->configure('RESPONSES');
-$app->configure('swoole_http');
 
 $app->register(SwooleTW\Http\LumenServiceProvider::class);
 

@@ -60,7 +60,7 @@ class LotteryModel extends CoreModel {
      * 不使用 GET 关键字，避免与 RESTful 搞混
      *
      * @param $iId, 12
-     * @param $aQueries, [['status', '==', '2'], ...]
+     * @param $aQueries, [['status' => ['==', '2'], ...], ...]
      * @param $aOptions, ['offset' => 1, 'limit' => 100]
      */
 

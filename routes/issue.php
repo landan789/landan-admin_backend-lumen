@@ -11,7 +11,25 @@
 |
 */
 
-$router->group(['middleware' => ['parameterMiddleware', 'responseMiddleware', 'logMiddleware', 'nonexistentURIMiddleware']], function () use ($router) {
-    $router->options('/issue/all', 'IssueController@getAll'); // Axios 会隐含 打 METHOD 为 options
-    $router->get('/issue/all', 'IssueController@getAll');
+
+$router->group(['middleware' => ['parameterMiddleware', 'logMiddleware', 'responseMiddleware']], function () use ($router) {
+    $router->get('/issue/show', 'issueController@getShow');
+    $router->options('/issue/show', 'issueController@getShow'); // Axios 会隐含 打 METHOD 为 options
 });
+
+$router->group(['middleware' => ['logMiddleware', 'notAllowedMethodMiddleware']], function () use ($router) {
+    $router->post('/issue/add',  function () {});
+    $router->put('/issue/edit',  function () {});
+    $router->patch('/issue/edit',  function () {});
+    $router->delete('/issue/remove',  function () {});
+});
+
+$router->group(['middleware' => 'nonexistentURIMiddleware'], function () use ($router) {
+    $router->get('/issue/{any:[\w\/]+}', function () {});
+    $router->post('/issue/{any:[\w\/]+}', function () {});
+    $router->put('/issue/{any:[\w\/]+}', function () {});
+    $router->patch('/issue/{any:[\w\/]+}', function () {});
+    $router->delete('/issue/{any:[\w\/]+}', function () {});
+    $router->options('/issue/{any:[\w\/]+}', function () {});
+});
+

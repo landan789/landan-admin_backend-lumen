@@ -10,78 +10,81 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Issue;
-use Aplusaccelinc\Helpers\Response;
-use Aplusaccelinc\Helpers\Log;
+use App\Models\IssueModel;
+
 
 class IssueController extends Controller {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
+    public $offset = 0;
+    public $limit = 1000;
+
     public function __construct() {
         //
     }
 
-    public function getAll(Request $request) {
+    public function getShow(Request $oRequest) {
 
         try {
+            $iId = null;
+            $aQueries = [];
+            $aOptions = [];
 
-            $issueModel = new IssueModel();
+            if ($oRequest->input('id')) {
+                $iId = $oRequest->input('id');
+            }
 
-            $aIssues = $issueModel->show();
+            if ($oRequest->input('lottery_id')) {
+                $aQueries['lottery_id'] = $oRequest->input('lottery_id');
+            }
+
+            $aOptions['offset'] = $this->offset;
+            if ($oRequest->input('offset')) {
+                $aOptions['offset'] = $oRequest->input('offset');
+            }
+
+            $aOptions['limit'] = $this->limit;
+            if ($oRequest->input('limit')) {
+                $aOptions['limit'] = $oRequest->input('limit');
+            }
+
+            $oIssueModel = new IssueModel();
+
+            $aIssues = $oIssueModel->show($iId, $aQueries, $aOptions);
+            $iTotalCount = $oIssueModel->num($iId, $aQueries);
 
             if (null === $aIssues) {
-                throw new \Exception('FAIL_TO_SHOW_ISSUE');
+                throw new \Exception('IT_FAILS_TO_SHOW_ISSUE');
             };
 
-            Log::success($request, null);
 
             $aData = [
                 'issues' => $aIssues
             ];
 
-            return Response::jsonSuccess('IT_SUCCEEDS_TO_SHOW_ISSUE', null, $aData, count($aIssues));
-        } catch (\Exception $e){
-            Log::fail($request, null);
+            $oRequest->request->add(['message' => 'IT_SUCCEEDS_TO_SHOW_ISSUE']);
+            $oRequest->request->add(['data' => $aData]);
+            $oRequest->request->add(['total_count' => $iTotalCount]);
+            $oRequest->request->add(['jwt' => '']);
 
-            return Response::jsonFail($e->getMessage());
+        } catch (\Exception $oError){
+            $sMessage = $oError->getMessage();
+            $oRequest->request->add(['message' => $sMessage]);
+
+        } finally {
+
         }
 
     }
 
-    public function getOne(Request $request, $customerId) {
-
-        try {
-            if (!$customerId) {
-                throw new \Exception('CUSTOMER_CUSTOMERID_IS_EMPTY');
-            }
-
-            $customer = Issue::find($customerId);
-            $customers = [$customer];
-
-            return Response::jsonSuccess('DATA_SUCCED_TO_FIND', null, $customers);
-        } catch (\Exception $e) {
-            Log::fail($request);
-
-            return Response::jsonFail($e->getMessage(), null);
-        }
-
+    public function postAdd($request) {
 
     }
 
-    public function postOne($request) {
+    public function putEdit($request) {
 
     }
 
-    public function putOne($request) {
+    public function deleteRemove($request) {
 
     }
-
-    public function deleteOne($request) {
-
-    }
-
-    //
 }
