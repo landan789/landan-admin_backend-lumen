@@ -62,25 +62,25 @@ class IssueModel extends CoreModel {
 
     public function show (int $iId = null, array $aQueries = null, array $aOptions = null): array {
 
-        $oLotteries = new self();
+        $oIssues = new self();
 
         if (is_integer($iId)) {
-            $oLotteries = $oLotteries->where($this->primaryKey, $iId);
+            $oIssues = $oIssues->where($this->primaryKey, $iId);
         }
 
         foreach ($aQueries as $sField => $mQuery){
             if ('integer' === gettype($mQuery) || 'string' === gettype($mQuery) || 'boolean' === gettype($mQuery)) {
-                $oLotteries = $oLotteries->where($sField, $mQuery);
+                $oIssues = $oIssues->where($sField, $mQuery);
                 continue;
             }
 
             if (1 === count($mQuery)) {
-                $oLotteries = $oLotteries->where($sField, $mQuery[0]);
+                $oIssues = $oIssues->where($sField, $mQuery[0]);
                 continue;
             }
 
             if (2 <= count($mQuery)) {
-                $oLotteries = $oLotteries->where($sField, $mQuery[0], $mQuery[1]);
+                $oIssues = $oIssues->where($sField, $mQuery[0], $mQuery[1]);
                 continue;
             }
         }
@@ -88,17 +88,17 @@ class IssueModel extends CoreModel {
 
         if ('array' === gettype($aOptions) && isset($aOptions['offset'])) {
             $iOffset = (int)$aOptions['offset'];
-            $oLotteries = $oLotteries->offset($iOffset);
+            $oIssues = $oIssues->offset($iOffset);
         }
 
         if ('array' === gettype($aOptions) && isset($aOptions['limit'])) {
             $iLimit = (int)$aOptions['limit'];
-            $oLotteries = $oLotteries->limit($iLimit);
+            $oIssues = $oIssues->limit($iLimit);
         }
 
-        $aLotteries = $oLotteries->get()->toArray();
+        $oIssues = $oIssues->get()->toArray();
 
-        return $aLotteries;
+        return $oIssues;
 
     }
 
@@ -108,32 +108,32 @@ class IssueModel extends CoreModel {
  * */
     public function num (int $iId = null, array $aQueries = null): int {
 
-        $oLotteries = new self();
+        $oIssues = new self();
 
         if (is_integer($iId)) {
-            $oLotteries = $oLotteries->where($this->primaryKey, $iId);
+            $oIssues = $oIssues->where($this->primaryKey, $iId);
         }
 
         foreach ($aQueries as $sField => $mQuery){
             if ('integer' === gettype($mQuery) || 'string' === gettype($mQuery) || 'boolean' === gettype($mQuery)) {
-                $oLotteries = $oLotteries->where($sField, $mQuery);
+                $oIssues = $oIssues->where($sField, $mQuery);
                 continue;
             }
 
             if (1 === count($mQuery)) {
-                $oLotteries = $oLotteries->where($sField, $mQuery[0]);
+                $oIssues = $oIssues->where($sField, $mQuery[0]);
                 continue;
             }
 
             if (2 <= count($mQuery)) {
-                $oLotteries = $oLotteries->where($sField, $mQuery[0], $mQuery[1]);
+                $oIssues = $oIssues->where($sField, $mQuery[0], $mQuery[1]);
                 continue;
             }
         }
 
-        $oLotteries->select($this->primaryKey);
+        $oIssues->select($this->primaryKey);
 
-        $iCount = $oLotteries->count();
+        $iCount = $oIssues->count();
 
         return $iCount;
 

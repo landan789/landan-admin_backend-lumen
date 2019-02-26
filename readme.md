@@ -55,7 +55,7 @@ php -dxdebug.remote_autostart=1 -dxdebug.remote_host=10.0.2.2 -dxdebug.remote_po
 ```
 ---------------------------------------
 
-[4]. 步骤四，在 PHPStorm，下你想查看的断点
+[4]. 步骤四，在 PHPStorm，使用  xdebug_break() PHP 函数 下你想查看的断点
 ```OS
 略
 ```

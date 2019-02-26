@@ -24,6 +24,7 @@ class LotteryController extends CoreController {
     }
 
     /**
+     * 
      * @param Request $oRequest
      */
     public function getShow(Request $oRequest) {
