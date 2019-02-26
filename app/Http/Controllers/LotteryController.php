@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use core\controller\CoreController;
 use App\Models\LotteryModel;
 
+// 控制器 命名规则 完全 遵守 RESTful 规则, {名词 + Controller }.{RESTful 方法名 + 动词 }
 class LotteryController extends CoreController {
     /**
      * Create a new controller instance.
@@ -24,7 +25,7 @@ class LotteryController extends CoreController {
     }
 
     /**
-     * 
+     * 取数据 RESTful GET, {get + Show{
      * @param Request $oRequest
      */
     public function getShow(Request $oRequest) {
@@ -85,14 +86,27 @@ class LotteryController extends CoreController {
 
     }
 
+    /**
+     * 新增数据 RESTful POST, {post + Add}
+     * @param Request $oRequest
+     */
+
     public function postAdd($request) {
 
     }
 
+    /**
+     * 修改数据 RESTful PUT, {put + Edit}
+     * @param Request $oRequest
+     */
     public function putEdit($request) {
 
     }
 
+    /**
+     * 取数据 RESTful DELETE, {delete + Remove}
+     * @param Request $oRequest
+     */
     public function deleteRemove($request) {
 
     }
