@@ -48,7 +48,7 @@ class NonExistentURIMiddleware
             'code' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.CODE'),
             'message' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.MESSAGE'),
             'data' => (object)[],
-            'total_count' => 100,
+            'total_count' => 0,
             'jwt' => ''
         ];
 
