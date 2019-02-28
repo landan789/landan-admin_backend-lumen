@@ -37,6 +37,14 @@ class IssueController extends CoreController {
                 $aQueries['lottery_id'] = $oRequest->input('lottery_id');
             }
 
+            if ($oRequest->input('started_at')) {
+                $aQueries['started_at'] = $oRequest->input('started_at');
+            }
+
+            if ($oRequest->input('ended_at')) {
+                $aQueries['ended_at'] = $oRequest->input('ended_at');
+            }
+
             $aOptions['offset'] = $this->offset;
             if ($oRequest->input('offset')) {
                 $aOptions['offset'] = $oRequest->input('offset');

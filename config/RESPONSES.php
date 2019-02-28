@@ -85,24 +85,24 @@
     ],
 
 
-    'JWT_IS_FORBIDDEN' => [
+    'IT_IS_FORBIDDEN' => [
         'STATUS' => 403,
         'RESULT' => -1,
         'CODE' => -0.01,
-        'MESSAGE' => 'jwt is forbidden'
+        'MESSAGE' => 'it is forbidden'
     ],
-    'JWT_IS_EXPIRED' => [
+    'IT_IS_EXPIRED' => [
         'STATUS' => 403,
         'RESULT' => -1,
         'CODE' => -3,
-        'MESSAGE' => 'jwt is expired'
+        'MESSAGE' => 'it is expired'
     ],
 
-    'JWT_IS_UNAUTHORIZED' => [
+    'IT_IS_UNAUTHORIZED' => [
         'STATUS' => 401,
         'RESULT' => -1,
         'CODE' => -0.02,
-        'MESSAGE' => 'jwt is unauthorized'
+        'MESSAGE' => 'it is unauthorized'
     ],
     'JWT_IS_EMPTY' => [
         'STATUS' => 401,

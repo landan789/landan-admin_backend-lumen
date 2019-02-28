@@ -69,6 +69,14 @@ class IssueModel extends CoreModel {
         }
 
         foreach ($aQueries as $sField => $mQuery){
+            if ('started_at' === $sField) {
+                continue;
+            }
+
+            if ('ended_at' === $sField) {
+                continue;
+
+            }
             if ('integer' === gettype($mQuery) || 'string' === gettype($mQuery) || 'boolean' === gettype($mQuery)) {
                 $oIssues = $oIssues->where($sField, $mQuery);
                 continue;
