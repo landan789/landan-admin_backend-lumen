@@ -55,9 +55,9 @@ class ResponseMiddleware
             'result' => config('RESPONSES.' . $sMessage . '.RESULT') ? config('RESPONSES.' . $sMessage . '.RESULT') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.RESULT'),
             'code' => $sMessage && isset(config('RESPONSES')[$sMessage]) ?  config('RESPONSES.' . $sMessage . '.CODE') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.CODE'),
             'message' => $sMessage,
-            'data' => (object)$aData,
+            'jwt' => $sJwt,
             'total_count' => $iTotalCount,
-            'jwt' => $sJwt
+            'data' => (object)$aData
         ];
 
         return response()->json($aJson, $iStatus, [] );

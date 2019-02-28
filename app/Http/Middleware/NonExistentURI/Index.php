@@ -47,9 +47,9 @@ class NonExistentURIMiddleware
             'result' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.RESULT'),
             'code' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.CODE'),
             'message' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.MESSAGE'),
-            'data' => (object)[],
+            'jwt' => '',
             'total_count' => 0,
-            'jwt' => ''
+            'data' => (object)[],
         ];
 
         return response()->json($aJson, $iStatus, []);
