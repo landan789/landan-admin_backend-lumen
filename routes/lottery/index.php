@@ -21,6 +21,10 @@
 /*
  * 路由规则
  * $reouter->{RESTful方法名}('/{RESTful方法名 + 动词}', ' {路由一致的命名Controller}@{RESTful方法名 + 动词}')
+ * 此种命名规则 同时兼容 RESTful API 与 一般 API 的命名规则
+ * 如 增加 user : userController@postAdd
+ * 如 登入      ： AuthenticationController@postSignin
+ * 如 重取token ： AuthenticationController@postRefresh
  *
  *
  * */
