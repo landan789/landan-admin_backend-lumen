@@ -150,6 +150,7 @@ composer install
 [*]. 考虑好维护，
      对于一些非主业务逻辑的代码，应编写在 Middleware，减少 Controller 继承过长
      对于一些共用方法，但却不是每一个都用到，应编写在 Traits (或称为 Mixin)，减少 Controller, Model 继承过长
+     也就是少使用 BaseModel, BaseController 等 设计，继承最好在 两层， 最多三层
      这种思维是 受到 nodejs 的 Express, Koa 与 Ruby on Rails 的影响
      ！！！！！！！！！！！！！！！！！！！！！！！
      ！！！！！！！！！！！！！！！！！！！！！！！
