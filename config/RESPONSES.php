@@ -44,9 +44,9 @@
  *
  */return [
     'IT_SUCCEEDS_TO_SHOW_LOTTERY' => [
-        'STATUS' => 200,
-        'RESULT' => 1,
-        'CODE' => 0,
+        'STATUS' => 200,  // HTTP STATUS CODE
+        'RESULT' => 1,    // success or failure
+        'CODE' => 0,      // Error Code
         'MESSAGE' => 'it succeeds to show lottery'
     ],
     'IT_SUCCEEDS_TO_SHOW_ISSUE' => [
