@@ -43,7 +43,7 @@ class NotAllowedMethodMiddleware
         $cNext($oRequest);
 
         $iStatus = config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.STATUS');
-        $json = [
+        $aJson = [
             'result' => config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.RESULT'),
             'code' => config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.CODE'),
             'message' => config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.MESSAGE'),
@@ -52,6 +52,6 @@ class NotAllowedMethodMiddleware
             'jwt' => ''
         ];
 
-        return response()->json($json, $iStatus);
+        return response()->json($aJson, $iStatus);
     }
 }

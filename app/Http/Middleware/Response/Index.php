@@ -51,7 +51,7 @@ class ResponseMiddleware
         $sJwt = $oRequest->input('jwt') ?? '';
 
         $iStatus = $sMessage && isset(config('RESPONSES')[$sMessage]) ? config('RESPONSES.' . $sMessage . '.STATUS') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.STATUS');
-        $json = [
+        $aJson = [
             'result' => config('RESPONSES.' . $sMessage . '.RESULT') ? config('RESPONSES.' . $sMessage . '.RESULT') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.RESULT'),
             'code' => $sMessage && isset(config('RESPONSES')[$sMessage]) ?  config('RESPONSES.' . $sMessage . '.CODE') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.CODE'),
             'message' => $sMessage,
@@ -60,7 +60,7 @@ class ResponseMiddleware
             'jwt' => $sJwt
         ];
 
-        return response()->json($json, $iStatus, [] );
+        return response()->json($aJson, $iStatus, [] );
     }
 
 }
