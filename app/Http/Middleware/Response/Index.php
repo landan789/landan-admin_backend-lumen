@@ -46,7 +46,7 @@ class ResponseMiddleware
 
         $cNext($oRequest);
         $sMessage = $oRequest->input('message') && isset(config('RESPONSES')[strtoupper($oRequest->input('message'))]) ? strtoupper($oRequest->input('message')) : 'IT_IS_UNKNOWN_ERROR' . ' ' . $oRequest->input('message');
-        $aData = $oRequest->input('data') ?? [];
+        $aData = $oRequest->input('data') ?? (object)[];
         $iTotalCount = $oRequest->input('total_count') ?? 0;
         $sJwt = $oRequest->input('jwt') ?? '';
 
@@ -60,7 +60,7 @@ class ResponseMiddleware
             'data' => $aData
         ];
 
-        return response()->json($json, $iStatus);
+        return response()->json($json, $iStatus, [] );
     }
 
 }

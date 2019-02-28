@@ -47,11 +47,11 @@ class NonExistentURIMiddleware
             'result' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.RESULT'),
             'code' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.CODE'),
             'message' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.MESSAGE'),
-            'data' => [],
-            'total_count' => 0,
+            'data' => (object)[],
+            'total_count' => 100,
             'jwt' => ''
         ];
 
-        return response()->json($json, $iStatus);
+        return response()->json($json, $iStatus, []);
     }
 }

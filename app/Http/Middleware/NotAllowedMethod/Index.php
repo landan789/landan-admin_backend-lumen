@@ -47,7 +47,7 @@ class NotAllowedMethodMiddleware
             'result' => config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.RESULT'),
             'code' => config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.CODE'),
             'message' => config('RESPONSES.' . 'IT_REQUESTS_NOT_ALLOWED_METHOD' . '.MESSAGE'),
-            'data' => [],
+            'data' => (object)[],
             'total_count' => 0,
             'jwt' => ''
         ];
