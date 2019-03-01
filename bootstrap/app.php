@@ -49,7 +49,7 @@ $app->singleton(
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
     App\Console\Kernel::class,
-    App\Http\Middleware\LogMiddleware::class
+    App\Middleware\LogMiddleware::class
 );
 
 /*
@@ -68,13 +68,13 @@ $app->singleton(
 // ]);
 
  $app->routeMiddleware([
-     'corsMiddleware' => App\Http\Middleware\CorsMiddleware::class,
-     'logMiddleware' => App\Http\Middleware\LogMiddleware::class,
-     'authenticationMiddleware' => App\Http\Middleware\AuthenticationMiddleware::class,
-     'nonexistentURIMiddleware' => App\Http\Middleware\NonExistentURIMiddleware::class,
-     'notAllowedMethodMiddleware' => App\Http\Middleware\NotAllowedMethodMiddleware::class,
-     'parameterMiddleware' => App\Http\Middleware\ParameterMiddleware::class,
-     'responseMiddleware' => App\Http\Middleware\ResponseMiddleware::class
+     'corsMiddleware' => App\Middleware\CorsMiddleware::class,
+     'logMiddleware' => App\Middleware\LogMiddleware::class,
+     'authenticationMiddleware' => App\Middleware\AuthenticationMiddleware::class,
+     'nonexistentURIMiddleware' => App\Middleware\NonExistentURIMiddleware::class,
+     'notAllowedMethodMiddleware' => App\Middleware\NotAllowedMethodMiddleware::class,
+     'parameterMiddleware' => App\Middleware\ParameterMiddleware::class,
+     'responseMiddleware' => App\Middleware\ResponseMiddleware::class
  ]);
 
 /*
