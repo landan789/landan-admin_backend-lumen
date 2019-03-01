@@ -10,11 +10,10 @@ namespace App\Controllers;
 
 use Illuminate\Http\Request;
 
-use core\controller\CoreController;
 use App\Models\LotteryModel;
 
 // 控制器 命名规则 完全 遵守 RESTful 规则, {名词 + Controller }.{RESTful 方法名 + 动词 }
-class LotteryController extends CoreController {
+class LotteryController extends BaseLotteryController {
     /**
      * Create a new controller instance.
      *

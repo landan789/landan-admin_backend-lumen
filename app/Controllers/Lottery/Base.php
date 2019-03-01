@@ -9,6 +9,6 @@ use core\controller\CoreController;
  * Date: 2019/2/28
  * Time: 16:44
  */
-class BaseLotteryController {
+class BaseLotteryController extends CoreController{
     
 }
