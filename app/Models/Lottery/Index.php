@@ -8,7 +8,7 @@
 
 namespace App\Models;
 
-use core\model\CoreModel;
+use Xcore\Model\CoreModel;
 
 class LotteryModel extends CoreModel {
     protected $table = 'lotteries';

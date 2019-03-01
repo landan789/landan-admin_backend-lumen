@@ -24,8 +24,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "core\\model\\": "core/model/",
-            "core\\controller\\": "core/controller/"
+            "Xcore\\Model\\": "xcore/Model/",
+            "Xcore\\Controller\\": "xcore/Controller/"
         },
         "files" : ["app/Utilities/clientIP/index.php"]
     },

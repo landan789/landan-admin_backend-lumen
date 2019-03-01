@@ -9,7 +9,7 @@
 namespace App\Controllers;
 
 use Illuminate\Http\Request;
-use core\controller\CoreController;
+use Xcore\Controller\CoreController;
 
 use App\Models\IssueModel;
 

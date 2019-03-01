@@ -1,6 +1,6 @@
 <?php
 
-namespace core\controller;
+namespace Xcore\Controller;
 
 use Laravel\Lumen\Routing\Controller as Laravel_Lumen_Routing_Controller;
 

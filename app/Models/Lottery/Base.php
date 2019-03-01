@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-use core\model\CoreModel;
+use Xcore\Model\CoreModel;
 /**
  * Created by PhpStorm.
  * User: landa

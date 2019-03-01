@@ -8,7 +8,7 @@
 
 namespace App\Models;
 
-use core\model\CoreModel;
+use Xcore\Model\CoreModel;
 
 class IssueModel extends CoreModel {
     protected $table = 'issues';
