@@ -5,7 +5,7 @@
  * Date: 2018/9/27
  * Time: 20:43
  */
-namespace App\Http\Controllers;
+namespace App\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;

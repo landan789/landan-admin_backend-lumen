@@ -104,7 +104,7 @@ $app->singleton(
 */
 
 $app->router->group([
-    'namespace' => 'App\Http\Controllers',
+    'namespace' => 'App\Controllers',
 ], function ($router) {
     require __DIR__ . '/../routes/lottery/index.php';
     require __DIR__ . '/../routes/issue/index.php';

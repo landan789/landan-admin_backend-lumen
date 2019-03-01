@@ -6,7 +6,7 @@
  * Time: 20:43
  * Controller is relative to RESTful API， thus th
  */
-namespace App\Http\Controllers;
+namespace App\Controllers;
 
 use Illuminate\Http\Request;
 use core\controller\CoreController;
