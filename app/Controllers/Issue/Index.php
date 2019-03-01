@@ -9,11 +9,10 @@
 namespace App\Controllers;
 
 use Illuminate\Http\Request;
-use Xcore\Controller\CoreController;
 
 use App\Models\IssueModel;
 
-class IssueController extends CoreController {
+class IssueController extends BaseIssueController {
 
     public $offset = 0;
     public $limit = 1000;

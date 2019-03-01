@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+use Core\Controller\CoreController;
 
 use Illuminate\Http\Request;
 /**
@@ -8,6 +9,6 @@ use Illuminate\Http\Request;
  * Date: 2019/2/28
  * Time: 16:44
  */
-class BaseIssueController {
+class BaseIssueController extends CoreController{
     
 }

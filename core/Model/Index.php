@@ -1,5 +1,5 @@
 <?php
-namespace Xcore\Model;
+namespace Core\Model;
 
 use Illuminate\Database\Eloquent\Model as Illuminate_Database_Eloquent_Model;
 

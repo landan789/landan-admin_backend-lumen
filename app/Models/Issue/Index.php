@@ -8,9 +8,9 @@
 
 namespace App\Models;
 
-use Xcore\Model\CoreModel;
+use Core\Model\CoreModel;
 
-class IssueModel extends CoreModel {
+class IssueModel extends BaseIssueController {
     protected $table = 'issues';
     protected $primaryKey = 'id';
     // const CREATED_AT = 'created_time';

@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use Illuminate\Http\Request;
-use Xcore\Controller\CoreController;
+use Core\Controller\CoreController;
 /**
  * Created by PhpStorm.
  * User: landa
