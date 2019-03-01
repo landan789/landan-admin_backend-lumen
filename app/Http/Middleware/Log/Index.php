@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use helpers\Log;
+use App\Helpers\Log;
 
 class LogMiddleware
 {

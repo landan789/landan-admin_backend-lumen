@@ -24,7 +24,6 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "helpers\\": "helpers/",
             "core\\model\\": "core/model/",
             "core\\controller\\": "core/controller/"
         },

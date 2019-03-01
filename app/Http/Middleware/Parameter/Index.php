@@ -10,9 +10,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use Aplusaccelinc\Helpers\Jwt;
-use Aplusaccelinc\Helpers\Response;
-
 /*
  * 修补 Lumen Route 无法取得 GET parameter 的问题
  */

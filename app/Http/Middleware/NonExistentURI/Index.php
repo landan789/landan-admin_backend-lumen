@@ -10,8 +10,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use helpers\Jwt;
-use helpers\Response;
+use App\Helpers\Response;
 
 class NonExistentURIMiddleware
 {
