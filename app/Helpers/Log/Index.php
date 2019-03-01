@@ -9,7 +9,7 @@
 namespace App\Helpers;
 
 use Log as _Log;
-use function utilities\clientIP;
+use function App\Utilities\clientIP;
 
 class Log {
     public static $requestAll = '';
