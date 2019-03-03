@@ -39,9 +39,15 @@ class ResponseMiddleware
      * @return mixed
      */
 
+
     public function handle($oRequest, Closure $cNext){
 
-        $cNext($oRequest);
+        $oResponse = $cNext($oRequest);
+
+        // 发生错误时, 就 response PHP 预设的资讯
+        if (!is_null($oResponse->exception)) {
+            return $oResponse;
+        }
 
         $sMessage = $oRequest->input('message') && isset(config('RESPONSES')[strtoupper($oRequest->input('message'))]) ? strtoupper($oRequest->input('message')) : 'IT_IS_UNKNOWN_ERROR' . ' ' . $oRequest->input('message');
         $aData = $oRequest->input('data') ?? [];
