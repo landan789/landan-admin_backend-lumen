@@ -22,7 +22,7 @@ try {
 $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
-
+$app->configure('APP');
 $app->configure('JWT');
 $app->configure('RESPONSES');
 $app->configure('swoole_http');

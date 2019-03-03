@@ -45,7 +45,7 @@ class ResponseMiddleware
         $oResponse = $cNext($oRequest);
 
         // 发生错误时, 就 response PHP 预设的资讯
-        if (!is_null($oResponse->exception)) {
+        if (!is_null($oResponse->exception) && true === config('APP.DEBUG')) {
             return $oResponse;
         }
 
