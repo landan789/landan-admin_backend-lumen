@@ -9,7 +9,6 @@
 namespace App\Middleware;
 
 use Closure;
-
 use App\Helpers\Response;
 
 class NonExistentURIMiddleware
@@ -41,16 +40,17 @@ class NonExistentURIMiddleware
 
         $cNext($oRequest);
 
-        $iStatus = config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.STATUS');
-        $aJson = [
-            'result' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.RESULT'),
-            'code' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.CODE'),
-            'message' => config('RESPONSES.' . 'IT_REQUESTS_NONEXISTENT_URI' . '.MESSAGE'),
-            'jwt' => '',
-            'total_count' => 0,
-            'data' => (object)[],
-        ];
+        $oResponseHelper = new Response();
 
-        return response()->json($aJson, $iStatus, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE );
+        $sMessage = 'IT_REQUESTS_NONEXISTENT_URI';
+        $aData = [];
+        $iTotalCount = 0;
+        $sJwt = '';
+
+        $oResponse = $oResponseHelper->setData($aData)->setMessage($sMessage)->setTotalCount($iTotalCount)->setJwt($sJwt)->json();
+
+        return $oResponse;
+
+
     }
 }
