@@ -13,8 +13,8 @@
 
 
 $router->group(['prefix' => 'admin/resource', 'middleware' => ['parameterMiddleware', 'logMiddleware', 'responseMiddleware']], function () use ($router) {
-    $router->get('/issue/show', 'issueController@getShow');
-    $router->options('/issue/show', 'issueController@getShow'); // Axios 会隐含 打 METHOD 为 options
+    $router->get('/issue/show', 'IssueController@getShow');
+    $router->options('/issue/show', 'IssueController@getShow'); // Axios 会隐含 打 METHOD 为 options
 });
 
 $router->group(['prefix' => 'admin/resource', 'middleware' => ['logMiddleware', 'notAllowedMethodMiddleware']], function () use ($router) {

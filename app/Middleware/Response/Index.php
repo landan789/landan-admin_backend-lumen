@@ -64,7 +64,7 @@ class ResponseMiddleware
             'data' => (object)$aData
         ];
 
-        return response()->json($aJson, $iStatus, [] );
+        return response()->json($aJson, $iStatus, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE );
     }
 
 }
