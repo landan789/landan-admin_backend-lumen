@@ -9,7 +9,7 @@
 namespace App\Middleware;
 
 use Closure;
-
+use App\Helpers\Response;
 /*
  * 修补 Lumen Route 无法取得 GET parameter 的问题
  */
@@ -49,22 +49,16 @@ class ResponseMiddleware
             return $oResponse;
         }
 
-        $sMessage = $oRequest->input('message') && isset(config('RESPONSES')[strtoupper($oRequest->input('message'))]) ? strtoupper($oRequest->input('message')) : 'IT_IS_UNKNOWN_ERROR' . ' ' . $oRequest->input('message');
+        $oResponseHelper = new Response();
+
+        $sMessage = $oRequest->input('message');
         $aData = $oRequest->input('data') ?? [];
         $iTotalCount = $oRequest->input('total_count') ?? 0;
         $sJwt = $oRequest->input('jwt') ?? '';
 
-        $iStatus = $sMessage && isset(config('RESPONSES')[$sMessage]) ? config('RESPONSES.' . $sMessage . '.STATUS') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.STATUS');
-        $aJson = [
-            'result' => config('RESPONSES.' . $sMessage . '.RESULT') ? config('RESPONSES.' . $sMessage . '.RESULT') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.RESULT'),
-            'code' => $sMessage && isset(config('RESPONSES')[$sMessage]) ?  config('RESPONSES.' . $sMessage . '.CODE') : config('RESPONSES.' . 'IT_IS_UNKNOWN_ERROR' . '.CODE'),
-            'message' => $sMessage,
-            'jwt' => $sJwt,
-            'total_count' => $iTotalCount,
-            'data' => (object)$aData
-        ];
+        $oResponse = $oResponseHelper->setData($aData)->setMessage($sMessage)->setTotalCount($iTotalCount)->setJwt($sJwt)->json();
 
-        return response()->json($aJson, $iStatus, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE );
+        return $oResponse;
     }
 
 }
