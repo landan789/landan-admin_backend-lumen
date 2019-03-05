@@ -11,7 +11,7 @@ namespace App\Middleware;
 use Closure;
 use App\Helpers\Response;
 
-class NotAllowedMethodMiddleware
+class NotAllowedMethodResponseMiddleware
 {
     /**
      * The authentication guard factory instance.

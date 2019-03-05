@@ -10,8 +10,10 @@ namespace App\Middleware;
 
 use Closure;
 use App\Helpers\Response;
-
-class NonExistentURIMiddleware
+/*
+ * 修补 Lumen Route 无法取得 GET parameter 的问题
+ */
+class FinalResponseMiddleware
 {
     /**
      * The authentication guard factory instance.
@@ -29,28 +31,34 @@ class NonExistentURIMiddleware
     }
 
     /**
-     * 后置中间件，统一处理 未定义的 API path 请求
+     * 后置中间件，统一处理 API 接口回应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($oRequest, Closure $cNext) {
 
-        $cNext($oRequest);
+
+    public function handle($oRequest, Closure $cNext){
+
+        $oResponse = $cNext($oRequest);
+
+        // 发生错误时, 就 response PHP 预设的资讯
+        if (!is_null($oResponse->exception) && true === config('APP.DEBUG')) {
+            return $oResponse;
+        }
 
         $oResponseHelper = new Response();
 
-        $sMessage = 'IT_REQUESTS_NONEXISTENT_URI';
-        $aData = [];
-        $iTotalCount = 0;
-        $sJwt = '';
+        $sMessage = $oRequest->input('message');
+        $aData = $oRequest->input('data') ?? [];
+        $iTotalCount = $oRequest->input('total_count') ?? 0;
+        $sJwt = $oRequest->input('jwt') ?? '';
 
         $oResponse = $oResponseHelper->setData($aData)->setMessage($sMessage)->setTotalCount($iTotalCount)->setJwt($sJwt)->json();
 
         return $oResponse;
-
-
     }
+
 }
