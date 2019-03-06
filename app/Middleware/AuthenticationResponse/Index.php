@@ -10,10 +10,10 @@ namespace App\Middleware;
 
 use Closure;
 
-use Aplusaccelinc\Helpers\Jwt;
-use Aplusaccelinc\Helpers\Response;
+use App\Helpers\Jwt;
+use App\Helpers\Response;
 
-class AuthenticationMiddleware
+class AuthenticationResponseMiddleware
 {
     /**
      * The authentication guard factory instance.
@@ -41,7 +41,7 @@ class AuthenticationMiddleware
     public function handle($oRequest, Closure $cNext) {
         try {
 
-            $sJwt = $oRequest->header('Authorization');
+            $sJwt = $oRequest->header('Authorization') ?? $oRequest->header('authorization');
 
             if (empty($sJwt)) {
                 throw new \Exception('JWT_IS_EMPTY');
@@ -50,14 +50,22 @@ class AuthenticationMiddleware
             $oPayload = Jwt::decode($sJwt);
             $tExp = $oPayload->exp;
             if (time() > $tExp) {
-                throw new \Exception('JWT_HAS_EXPIRED');
+                throw new \Exception('IT_IS_EXPIRED');
             }
 
             return $cNext($oRequest);
 
         } catch (\Exception $oError) {
-            $sMessage = $oError->getMessage() ? $oError->getMessage() : 'JWT_IS_NOT_AUTHORIZED';
-            return Response::jsonFail($sMessage, null, 401);
+            $oResponseHelper = new Response();
+
+            $sMessage = $oError->getMessage() ?? 'IT_IS_UNAUTHORIZED';
+            $aData = [];
+            $iTotalCount = 0;
+            $sJwt = '';
+
+            $oResponse = $oResponseHelper->setData($aData)->setMessage($sMessage)->setTotalCount($iTotalCount)->setJwt($sJwt)->json();
+
+            return $oResponse;
 
         }
 

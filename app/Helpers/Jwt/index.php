@@ -16,7 +16,7 @@ class Jwt {
         // uid is very easy to be intruded, so we do a extra encoding for it.
         // cid is very easy to be intruded, so we do a extra encoding for it
 
-        $payload = [
+        $aPayload = [
             'sub' => config('JWT.SUBJECT'),
             'iss' => config('JWT.ISSUER'),
             'adu' => config('JWT.AUDIENCE'),
@@ -26,7 +26,7 @@ class Jwt {
         ];
 
 
-        $sJwt = FIREBASE_JWT_JWT::encode($payload,  config('JWT.SECRET'));
+        $sJwt = FIREBASE_JWT_JWT::encode($aPayload,  config('JWT.SECRET'));
 
         return $sJwt;
     }

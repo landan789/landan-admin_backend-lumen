@@ -70,7 +70,7 @@ $app->singleton(
  $app->routeMiddleware([
      'corsMiddleware' => App\Middleware\CorsMiddleware::class,
      'logMiddleware' => App\Middleware\LogMiddleware::class,
-     'authenticationMiddleware' => App\Middleware\AuthenticationMiddleware::class,
+     'authenticationResponseMiddleware' => App\Middleware\AuthenticationResponseMiddleware::class,
      'nonexistentURIResponseMiddleware' => App\Middleware\NonExistentURIResponseMiddleware::class,
      'notAllowedMethodResponseMiddleware' => App\Middleware\NotAllowedMethodResponseMiddleware::class,
      'parameterMiddleware' => App\Middleware\ParameterMiddleware::class,
